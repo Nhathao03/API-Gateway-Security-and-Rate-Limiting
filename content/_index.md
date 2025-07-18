@@ -1,6 +1,5 @@
 ---
 title : "API Gateway Security and Rate Limiting"
-
 weight : 1 
 chapter : false
 ---

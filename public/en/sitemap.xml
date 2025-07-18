@@ -14,16 +14,28 @@
                 href="//localhost:1313/"
                 />
   </url><url>
-    <loc>//localhost:1313/10-cleanup/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.1-createdynamodbtable/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/10-cleanup/"
+                href="//localhost:1313/vi/2-deloydatabase/2.1-createdynamodbtable/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/10-cleanup/"
+                href="//localhost:1313/2-deloydatabase/2.1-createdynamodbtable/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/"
                 />
   </url><url>
     <loc>//localhost:1313/1-introduce/</loc>
@@ -38,100 +50,64 @@
                 href="//localhost:1313/1-introduce/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-configureshieldroute53/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-configureshieldroute53/"
+                href="//localhost:1313/vi/2-deloydatabase/2.3-testlambdafunctions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-configureshieldroute53/"
+                href="//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/"
                 />
   </url><url>
-    <loc>//localhost:1313/3-configurewaf/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-configurewaf/"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-configurewaf/"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/"
                 />
   </url><url>
-    <loc>//localhost:1313/4-configurecognito/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-configurecognito/"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-configurecognito/"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
                 />
   </url><url>
-    <loc>//localhost:1313/5-configurecloudfront/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/5-configurecloudfront/"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/5-configurecloudfront/"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
                 />
   </url><url>
-    <loc>//localhost:1313/6-configurelambda/</loc>
+    <loc>//localhost:1313/2-deloydatabase/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-configurelambda/"
+                href="//localhost:1313/vi/2-deloydatabase/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-configurelambda/"
-                />
-  </url><url>
-    <loc>//localhost:1313/7-configures3/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/7-configures3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/7-configures3/"
-                />
-  </url><url>
-    <loc>//localhost:1313/8-configuredynamodb/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/8-configuredynamodb/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/8-configuredynamodb/"
-                />
-  </url><url>
-    <loc>//localhost:1313/9-configuremonitoring/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/9-configuremonitoring/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/9-configuremonitoring/"
+                href="//localhost:1313/2-deloydatabase/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>
