@@ -16,7 +16,7 @@ Trong phần này chúng ta sẽ tạo function để xoá thông tin tài liệ
  + Chọn **Python 3.9** cho mục Runtime
  + Nhấn nút **Create function**
 
-![Deleting function](/images/2.deloydatabase/014-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/022-createdeletingfunction.png)
 
 4. Nhập vào đoạn code sau cho tệp **lambda_function.py**:
 
@@ -69,30 +69,30 @@ def lambda_handler(event, context):
 
  + Sau đó nhấn nút **Deloy**
 
-![Deleting function](/images/2.deloydatabase/015-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/023-createdeletingfunction.png)
 
  Đoạn code trên thực hiện lấy biến môi trường **TABLE_NAME** và **partition key** và **sort key** từ event. Sau đó thêm xoá item có **partition key** và **sort key** khớp với input.
 
 5. Chúng ta cần thêm biến môi trường cho function. Ấn tab **Configuration**, sau đó chọn **Environment variables** ở menu phía bên trái. Ấn **Edit**
 
-![Deleting function](/images/2.deloydatabase/016-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/024-createdeletingfunction.png)
 
 6. Nhấn nút **Add environment variable**
  + Nhập `TABLE_NAME` vào key
  + Nhập tên DynamoDB table bạn vừa tạo làm giá trị
  + Nhấn nút **Save**
 
-![Deleting function](/images/2.deloydatabase/017-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/025-createdeletingfunction.png)
 
  7. Tiếp theo, thêm quyền cho function để truy cập vào DynamoDB table
  + Nhấn nút **Permission** ở menu bên trái
  + Ấn vào tên role mà lambda function đang thực hiện
 
-![Deleting function](/images/2.deloydatabase/018-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/026-createdeletingfunction.png)
 
 8. Mở rộng chính sách **AWSLambdaBasicExecutionRole…** sau đó ấn **Edit**
 
-![Deleting function](/images/2.deloydatabase/019-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/027-createdeletingfunction.png)
 
 9. Nhấn nút **JSON**. Sao chép đoạn json dưới đây vào editor
 
@@ -109,8 +109,8 @@ def lambda_handler(event, context):
 Thay thế `REGION` và `ACCOUNT_ID` bằng vùng mà bạn tạo bảng và account id của bạn.
 + Nhấn nút **Review policy**
 
-![Deleting function](/images/2.deloydatabase/020-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/028-createdeletingfunction.png)
 
 10. Nhấn nút **Save changes**
 
-![Deleting function](/images/2.deloydatabase/021-createcreatingfunction.png)
+![Deleting function](/images/2.deloydatabase/029-createdeletingfunction.png)

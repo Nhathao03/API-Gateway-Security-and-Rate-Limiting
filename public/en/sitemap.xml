@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//localhost:1313/3-configcognito/3.3-authenticationandstorage/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.3-authenticationandstorage/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/3.4-accesslevel/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.4-accesslevel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.4-accesslevel/"
+                />
+  </url><url>
     <loc>//localhost:1313/</loc>
     <xhtml:link
                 rel="alternate"
@@ -26,16 +50,28 @@
                 href="//localhost:1313/2-deloydatabase/2.1-createdynamodbtable/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/3.1-introduceamplify/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.1-introduceamplify/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.1-introduceamplify/"
                 />
   </url><url>
     <loc>//localhost:1313/1-introduce/</loc>
@@ -50,16 +86,16 @@
                 href="//localhost:1313/1-introduce/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/</loc>
+    <loc>//localhost:1313/3-configcognito/3.2-preparation/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-deloydatabase/2.3-testlambdafunctions/"
+                href="//localhost:1313/vi/3-configcognito/3.2-preparation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/"
+                href="//localhost:1313/3-configcognito/3.2-preparation/"
                 />
   </url><url>
     <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/</loc>
@@ -74,28 +110,16 @@
                 href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/</loc>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
-                />
-  </url><url>
-    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/"
                 />
   </url><url>
     <loc>//localhost:1313/2-deloydatabase/</loc>
@@ -108,6 +132,42 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/2-deloydatabase/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-deloydatabase/2.3-testlambdafunctions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>
