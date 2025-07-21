@@ -1,24 +1,17 @@
 [
 {
-	"uri": "//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/",
-	"title": "API Gateway Security and Rate Limiting",
-	"tags": [],
-	"description": "",
-	"content": "Triển khai ASP.NET Core API + React JS + SQL Server 2019 trên AWS Tổng quan Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Amazon API Gateway Security and Rate Limiting - Session Management. Thực hành tạo kết nối đến máy chủ public và máy chủ private trong VPC.\n"
-},
-{
-	"uri": "//localhost:1313/vi/3-configcognito/3.4-accesslevel/",
-	"title": "API Gateway Security and Rate Limiting",
-	"tags": [],
-	"description": "",
-	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\n"
-},
-{
 	"uri": "//localhost:1313/vi/",
 	"title": "API Gateway Security and Rate Limiting",
 	"tags": [],
 	"description": "",
 	"content": "Triển khai ASP.NET Core API + React JS + SQL Server 2019 trên AWS Tổng quan Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Amazon API Gateway Security and Rate Limiting - Session Management. Thực hành tạo kết nối đến máy chủ public và máy chủ private trong VPC.\n"
+},
+{
+	"uri": "//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/",
+	"title": "Application với Amplify",
+	"tags": [],
+	"description": "",
+	"content": " Chạy câu lệnh dưới đây tại thư mục gốc của ứng dụng mà bạn clone về để thêm authentication cho ứng dụng: amplify add auth Chọn theo các thông tin dưới đây:\nDo you want to use the default authentication and security configuration? Default configuration Warning: you will not be able to edit these selections. How do you want users to be able to sign in? Username Do you want to configure advanced settings? No, I am done. Chạy câu lệnh sau để cập nhật tài nguyên trên cloud: amplify push Mở lại bảng điều khiển của CloudFormation để kiểm tra xem stack đã được tạo hay chưa. Ấn id của UserPool để mở bảng điều khiển của Cognito User Pool Chạy câu lệnh sau để bắt đầu với ứng dụng: npm start Ấn Sign up để đăng ký tài khoản mới. Nhập thông tin người dùng: Tên người dùng, ví dụ: admin Nhập email của bạn. Mật khẩu, ví dụ: Admin123 Ấn Sign up Mở lại bảng điều khiển của Cognito User Pool, chọn tab User bạn sẽ thấy một người dùng đã được đăng ký nhưng chưa xác nhận Mở mail của bạn để lấy mã xác thực đã được gửi tự động. Nhập mã xác nhập vào ứng dụng rồi ấn Submit Mở lại bảng điều khiển của Cognito User Pool, ấn biểu tượng Refresh bạn sẽ thấy ngừoi dùng đã được xác thực Đăng nhập vào ứng dụng với tài khoản bạn vừa đăng ký. Bạn đã đăng nhập thành công. "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduce/",
@@ -49,11 +42,32 @@
 	"content": "Trong phần này chúng ta sẽ tạo function để liệt kê các tài liệu được lưu trong DynamoDB table theo id của người dùng.\nMở bảng điều kiển AWS Lambda console Nhấn nút Create function Nhập tên function: list_documents Chọn Python 3.9 cho mục Runtime Nhấn nút Create function Nhập vào đoạn code sau cho tệp lambda_function.py: import json import boto3 import os from decimal import * from boto3.dynamodb.types import TypeDeserializer dynamodb = boto3.client(\u0026#39;dynamodb\u0026#39;) serializer = TypeDeserializer() class DecimalEncoder(json.JSONEncoder): def default(self, obj): if isinstance(obj, Decimal): return str(obj) return json.JSONEncoder.default(self, obj) def deserialize(data): if isinstance(data, list): return [deserialize(v) for v in data] if isinstance(data, dict): try: return serializer.deserialize(data) except TypeError: return {k: deserialize(v) for k, v in data.items()} else: return data def lambda_handler(event, context): table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] user_id = event[\u0026#39;pathParameters\u0026#39;][\u0026#39;id\u0026#39;] print(user_id) docs = dynamodb.query( TableName=table_name, KeyConditionExpression=\u0026#34;user_id = :id\u0026#34;, ExpressionAttributeValues={ \u0026#34;:id\u0026#34;: { \u0026#39;S\u0026#39;: user_id } } ) format_data_docs = deserialize(docs[\u0026#34;Items\u0026#34;]) # TODO implement return { \u0026#34;statusCode\u0026#34;: 200, \u0026#34;headers\u0026#34;: { \u0026#34;Content-Type\u0026#34;: \u0026#34;application/json\u0026#34;, \u0026#34;Access-Control-Allow-Origin\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Access-Control-Allow-Methods\u0026#34;: \u0026#34;GET,PUT,POST,DELETE, OPTIONS\u0026#34;, \u0026#34;Access-Control-Allow-Headers\u0026#34;: \u0026#34;Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token,XKey,Authorization\u0026#34; }, \u0026#34;body\u0026#34;: json.dumps(format_data_docs, cls=DecimalEncoder) } Sau đó nhấn nút Deloy Đoạn code trên thực hiện lấy biến môi trường TABLE_NAME và id của người dùng từ event. Sau đó query đến DynamoDB table với điều kiện giá trị của Partition key bằng id của người dùng. Sau đó định dạng lại dữ liệu được trả về sau khi query.\nChúng ta cần thêm biến môi trường cho function. Ấn tab Configuration, sau đó chọn Environment variables ở menu phía bên trái. Ấn Edit Nhấn nút Add environment variable Nhập TABLE_NAME vào key Nhập tên DynamoDB table bạn vừa tạo làm giá trị Nhấn nút Save Tiếp theo, thêm quyền cho function để truy cập vào DynamoDB table Nhấn nút Permission ở menu bên trái Ấn vào tên role mà lambda function đang thực hiện Mở rộng chính sách AWSLambdaBasicExecutionRole… sau đó ấn Edit Nhấn nút JSON. Sao chép đoạn json dưới đây vào editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;dynamodb:Query\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Thay thế REGION và ACCOUNT_ID bằng vùng mà bạn tạo bảng và account id của bạn.\nNhấn nút Review policy Nhấn nút Save changes "
 },
 {
-	"uri": "//localhost:1313/vi/3-configcognito/3.2-preparation/",
-	"title": "API Gateway Security and Rate Limiting",
+	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/",
+	"title": "Triển khai giao diện người dùng",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "Bước đầu trong bài này, chúng ta sẽ host ứng dụng web với S3 Static website hosting:\nMở bảng điều khiển Amazon S3 Console\nNhấn chọn Create Bucket Nhập tên cho bucket, ví dụ như fcjdmswebstore-5801 Bỏ chọn chặn cho phép truy cập public\nTích vào mục I acknowledge that the current settings might result in this bucket and the objects within becoming public Ấn nút Create bucket Ấn vào bucket đã tạo Ấn tab Properties Kéo xuống cuối trang, ấn edit của mục Static web hosting Chọn Enable để kích hoạt host web tình trên S3\nChọn Host a static website cho mục Hosting type Nhập index.html cho mục Index document Ấn Save changes Sau khi kích hoạt thành công, bạn hãy ghi lại đường dẫn của web Sau đó, chúng ta cần thêm policy cho S3 bucket để có thể truy cập được: Chọn tab Permissions Ấn Edit của mục Bucket policy Sao chép chính sách dưới đây vào mục Policy {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;,\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::BUCKET_NAME/*\u0026#34;\r}\r]\r} Thay thế BUCKET_NAME với tên bucket mà bạn đã đặt, sau đó ấn Save changes Mở tệp src/component/Home/Upload.js trong thư mục source code của ứng dụng và bỏ comment đoạn code gọi API ghi dữ liệu vào DynamoDB. Tiếp theo chạy câu lệnh sau tại thư mục gốc của project bạn đã tải về. (FCJ-Serverless-DMS) yarn build\raws s3 cp build s3://BUCKET_NAME --recursive Thay thế BUCKET_NAME với tên bucket mà bạn đã đặt Kết quả sau khi chạy xong câu lệnh Dán đường dẫn web mà bạn vừa ghi lại vào trình duyệt web của bạn Bạn đã hoàn thành việc host website của mình trên S3. Sang phần tiếp theo chúng ta cập nhật lại các lambda function\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/",
+	"title": "Cấu hình API Gateway",
+	"tags": [],
+	"description": "",
+	"content": "Cập nhật Lambda function Mở bảng điều khiển AWS Lambda Console Chọn hàm upload_documents Comment dòng 13 và mở comment dòng 12 Ấn Deloy Cấu hình API Gateway Mở bảng điều khiển Amazon API Gateway Console\nẤn Create API Kéo xuống mục REST API, ấn Build Để mặc định REST protocol.\nChọn New API Nhập tên API, ví dụ: fcj-dms-api-5801 Chọn kiểu Endpoint là Regional Ấn Create API Chọn API Gateway đã tạo Chọn Create Resource để tạo resource cho API. Nhập tên cho resource: docs, sau đó ấn Create Resource Chọn resource docs, sau đó ấn Create Method Thiết lập method như sau:\nGiữ mặc định kiểu tích hợp là Lambda Function Tích vào Lambda Proxy integration Chọn cùng của Lambda function mà bạn đã tạo Chọn hàm upload_document Cuối cùng ấn Save Sau đó tạo method POST, ấn Create Resource để tạo resource. Nhập tên resource {id}, sau đó ấn Create Resource Chọn resource {id}, sau đó ấn Create Method Thiết lập method như sau:\nGiữ mặc định kiểu tích hợp là Lambda Function Tích vào Lambda Proxy integration Chọn cùng của Lambda function mà bạn đã tạo Chọn hàm list_documents Cuối cùng ấn Save Click Create Method to create a new method Thiết lập method như sau:\nGiữ mặc định kiểu tích hợp là Lambda Function Tích vào Lambda Proxy integration Chọn cùng của Lambda function mà bạn đã tạo Chọn hàm delete_document Cuối cùng ấn Save Chọn method DELETE, sau đó ấn Edit tại mục Method request settings Mở rộng mục URL Query String Parameters, ấn Add query string để thêm một parameter mới\nNhập tên parameter: file. Parameter này lưu giá trị tên của file mà bạn muốn xoá. Ấn Save Chọn resource docs, sau đó ấn Enable CORS Tích vào POST, sau đó ấn Save Chọn resource {id}, sau đó ấn Enable CORS 21.Tích vào GET và DELETE, sau đó ấn Save Sau khi hoàn thành thiết lập, chúng ta deploy API. Chọn /docs, sau đó ấn Deploy API Chọn [New Stage]\nNhập tên stage: dev Ấn Deploy Ghi lại URL của API dùng cho phần tiếp theo. Mở rộng stage, chọn method POST và ghi lại URL. Chọn method DELETE và ghi lại URL. Chọn method GET và ghi lại URL. Bạn đã hoàn thành việc thiết lập API. Tiếp theo chúng ta sẽ kiểm tra hoạt động của API và tích hợp nó vào ứng dụng của mình.\n"
+},
+{
+	"uri": "//localhost:1313/vi/3-configcognito/3.2-preparation/",
+	"title": "Chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "Chúng ta thực hiện các bước dưới đây để chuẩn bị cho việc xác thực và lưu tệp với thư viện Amplify trong phần sau:\nCài đặt Amplify CLI, chạy câu lệnh dưới đây: npm install -g @aws-amplify/cli Bạn phải cài đặt NodeJs trước khi cài đặt Amplify CLI Bạn nên tạo một user và cấu hình một AWS profile với thông tin xác thực trên máy của bạn.\nChạy các câu lệnh dưới đây để clone ứng dụng về máy của bạn: git clone https://github.com/AWS-First-Cloud-Journey/FCJ-Serverless-DMS\rcd FCJ-Serverless-DMS\rnpm install Mở project và mở tệp src/component/Home/Upload.js . Comment đoạn code gọi API để tương tác với DynamoDB Để khởi tạo Amplify cho ứng dụng, bạn chạy câu lệnh dưới đây từ thư mục gốc của ứng dụng:\namplify init Nhập theo các thông tin dưới đây::\n? Enter a name for the project `fcjdms`` The following configuration will be applied:\nProject information\n| Name: fcjdms\n| Environment: dev\n| Default editor: Visual Studio Code\n| App type: javascript\n| Javascript framework: react\n| Source Directory Path: src\n| Distribution Directory Path: build\n| Build Command: npm run-script build\n| Start Command: npm run-script start\n? Initialize the project with the above configuration? Yes\nUsing default provider awscloudformation\n? Select the authentication method you want to use: AWS profile\nFor more information on AWS Profiles, see:\nhttps://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html\n? Please choose the profile you want to use default\n? Help improve Amplify CLI by sharing non sensitive configurations on failures (y/N) › No\nMở bảng điều khiển của CloudFormation\nChọn Stacks ở menu phía bên trái, bạn sẽ thấy stack mới được tạo. Ấn tab Resources bạn sẽ thấy các tài nguyên mà Amplify tạo "
+},
+{
+	"uri": "//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/",
+	"title": "Storage với Amplify",
+	"tags": [],
+	"description": "",
+	"content": "Sau khi bạn đã tạo tài khoản với Cognito User Pool thành công, chúng ta sẽ dùng tài khoản đó để upload file lên S3 bucket với Amplify trong phần này.\nẤn tổ hợp Ctrl+C trong terminal hoặc command line\nChạy câu lệnh dưới đây tại thư mục gốc của ứng dụng mà bạn clone về để thêm storage cho ứng dụng:\namplify add storage Chọn và nhập theo các thông tin dưới đây:\n? Please select from one of the below mentioned services: Content (Images, audio, video, etc.) Provide a friendly name for your resource that will be used to label this cateogry in the project: fcjdmsstore Provide bucket name: fcjdmsstore Who should have access: Auth users only What kind of access do you want for Authenticated user? Ấn tổ hợp Ctrl + A Do you want to add a Lambda Trigger for your S3 Bucket? no Chạy câu lệnh sau để cập nhật tài nguyên trên cloud: amplify push Mở lại bảng điều khiển của CloudFormation để kiểm tra xem stack đã được tạo hay chưa. Ấn vào tên của bucket để mở bảng điều khiển của bucket đó Chạy câu lệnh sau để bắt đầu với ứng dụng: npm start Ấn Upload Ấn Add files và chọn những tệp bạn muốn tải lên Thêm tag cho các tệp hoặc có thể bỏ qua. Sau đó ấn Upload Bạn đã tải lên thành công các tệp của mình Quay lại với bảng điều khiển của S3 bucket, kiểm tra xem các file đã được tải lên hay chưa. Vậy là bạn đã hoàn thành việc xác thực người dùng và tải tệp lên S3 với Amplify. Trong S3 bucket đã được tạo thư mục protected bởi vì ứng dụng của chúng ta chọn Access Level là protected. Để tìm hiểu thêm về Access Level, bạn hãy chuyển sang phần tiếp theo.\n"
 },
 {
 	"uri": "//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/",
@@ -84,6 +98,13 @@
 	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
 },
 {
+	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/",
+	"title": "Kiểm tra API với giao diện người dùng",
+	"tags": [],
+	"description": "",
+	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
+},
+{
 	"uri": "//localhost:1313/vi/2-deloydatabase/2.3-testlambdafunctions/",
 	"title": "Kiểm tra các funcrion",
 	"tags": [],
@@ -96,6 +117,27 @@
 	"tags": [],
 	"description": "",
 	"content": "Trong phần này chúng ta sẽ tạo function để xoá thông tin tài liệu được lưu trong DynamoDB table theo id của người dùng và tên tệp.\nMở bảng điều kiển AWS Lambda console Nhấn nút Create function Nhập tên function: delete_documents Chọn Python 3.9 cho mục Runtime Nhấn nút Create function Nhập vào đoạn code sau cho tệp lambda_function.py: import json import boto3 import os client = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): # TODO implement table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] error = None doc_pk = event[\u0026#39;pathParameters\u0026#39;][\u0026#39;id\u0026#39;] print(\u0026#34;doc_pk \u0026#34;, doc_pk) doc_sk = event[\u0026#39;queryStringParameters\u0026#39;][\u0026#39;file\u0026#39;] print(\u0026#34;doc_sk \u0026#34;, doc_sk) table = client.Table(table_name) key = { \u0026#39;user_id\u0026#39;:doc_pk, \u0026#39;file\u0026#39;: doc_sk } try: table.delete_item(Key = key) except Exception as e: error = e except Exception as e: error = e if error is None: message = \u0026#39;delete document successful!\u0026#39; else: print(error) message = \u0026#39;delete document fail\u0026#39; return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: message, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#39;Access-Control-Allow-Origin\u0026#39;: \u0026#39;*\u0026#39; }, } Sau đó nhấn nút Deloy Đoạn code trên thực hiện lấy biến môi trường TABLE_NAME và partition key và sort key từ event. Sau đó thêm xoá item có partition key và sort key khớp với input.\nChúng ta cần thêm biến môi trường cho function. Ấn tab Configuration, sau đó chọn Environment variables ở menu phía bên trái. Ấn Edit Nhấn nút Add environment variable Nhập TABLE_NAME vào key Nhập tên DynamoDB table bạn vừa tạo làm giá trị Nhấn nút Save Tiếp theo, thêm quyền cho function để truy cập vào DynamoDB table Nhấn nút Permission ở menu bên trái Ấn vào tên role mà lambda function đang thực hiện Mở rộng chính sách AWSLambdaBasicExecutionRole… sau đó ấn Edit Nhấn nút JSON. Sao chép đoạn json dưới đây vào editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;dynamoDB:PutItem\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Thay thế REGION và ACCOUNT_ID bằng vùng mà bạn tạo bảng và account id của bạn.\nNhấn nút Review policy Nhấn nút Save changes "
+},
+{
+	"uri": "//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/",
+	"title": "Xác thực và lưu trữ",
+	"tags": [],
+	"description": "",
+	"content": "Đây là phần chính của workshop này, bạn sẽ thêm xác thực người dùng và storage với Amplify vào project.\nNội dung Authentication với amplify Storage với amplify "
+},
+{
+	"uri": "//localhost:1313/vi/3-configcognito/3.4-accesslevel/",
+	"title": "Cấp độ truy cập",
+	"tags": [],
+	"description": "",
+	"content": "Khi tải tệp lên S3 bucket, chúng ta có 3 cấp độ truy cập là public, protected và private:\nPublic: Tất cả người dùng ứng dụng của bạn có thể truy cập. Các tệp được lưu trữ dưới đường dẫn chung/trong bộ chứa S3 của bạn. Protected: Tất cả người dùng có thể đọc nhưng chỉ người dùng tạo mới có thể ghi. Các tệp được lưu trữ trong protected/{user_identity_id}/ trong đó user_identity_id tương ứng với ID nhận dạng Amazon Cognito duy nhất cho người dùng đó. Private: Chỉ có thể truy cập cho người dùng cá nhân. Các tệp được lưu trữ trong private/{user_identity_id}/ trong đó user_identity_id tương ứng với ID nhận dạng Amazon Cognito duy nhất cho người dùng đó. Trong phần này chúng ta sẽ thay đổi quyền của người dùng để tải tệp lên S3.\nTruy cập vào bảng điều khiển của Cognito console\nẤm Identity pools ở menu bên trái Chọn fcjdms\u0026hellip;identitypool\u0026hellip; Ấn tab User access và ghi lại tên của Authenticated role Mở bảng điều khiển của IAM Role\nChọn Roles ở menu bên trái Nhập tên của Authenticated role và ấn vào role tìm thấy Mở rộng chính sách để xem quyền của user Chọn chính sách Protected_policy_\u0026hellip;\nẤn Remove Chúng ta sẽ xóa quyền ở mức độ truy cập là protected bởi vì ứng dụng đang sử dụng cấp độ đó.\nNhập tên chính sách và ấn Delete Bạn đã xóa thành công Trở về ứng dụng và chọn Add files, tiếp tục chọn tệp mà bạn muốn tải lên. Sau đó ấn Upload Truy cập vào bảng điều khiển Inspect | Console. Chúng ta đã nhận được một lỗi. Thêm lại quyền cho người dùng.\nẤm Add permissions Chọn Create inline policy Chọn service là S3 Tại mục Actions | Read, chọn GetObject Tại mục Actions | Write, chọn PutObject và DeleteObject Tại mục Resources, chọn Add ARN Nhập ARN: arn:aws:s3:::YOUR_BUCKET-dev/protected/${cognito-identity.amazonaws.com:sub}/* Thay thế YOUR_BUCKET bằng tên bucket mà bạn đã tạo trước đó.\nẤn Add Ấn Review policy Nhập tên chính sách: Protected_policy. Sau đó ấn Create policy Trở về ứng dụng, tải lại tệp mà bạn vừa thất bại\nẤn Add files, chọn tệp mà bạn muốn tải lên Ấn Upload Mở bảng điều khiển của S3 bucket xem tệp đã tải thành công hay chưa. "
+},
+{
+	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/",
+	"title": "Tích hợp giao diện người dùng với API",
+	"tags": [],
+	"description": "",
+	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
 },
 {
 	"uri": "//localhost:1313/vi/categories/",

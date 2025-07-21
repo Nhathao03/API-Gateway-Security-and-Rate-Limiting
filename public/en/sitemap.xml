@@ -2,30 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/3-configcognito/3.3-authenticationandstorage/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/3-configcognito/3.3-authenticationandstorage/"
-                />
-  </url><url>
-    <loc>//localhost:1313/3-configcognito/3.4-accesslevel/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/3-configcognito/3.4-accesslevel/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/3-configcognito/3.4-accesslevel/"
-                />
-  </url><url>
     <loc>//localhost:1313/</loc>
     <xhtml:link
                 rel="alternate"
@@ -36,6 +12,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/"
                 />
   </url><url>
     <loc>//localhost:1313/2-deloydatabase/2.1-createdynamodbtable/</loc>
@@ -86,18 +74,6 @@
                 href="//localhost:1313/1-introduce/"
                 />
   </url><url>
-    <loc>//localhost:1313/3-configcognito/3.2-preparation/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/3-configcognito/3.2-preparation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/3-configcognito/3.2-preparation/"
-                />
-  </url><url>
     <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/</loc>
     <xhtml:link
                 rel="alternate"
@@ -134,6 +110,42 @@
                 href="//localhost:1313/2-deloydatabase/"
                 />
   </url><url>
+    <loc>//localhost:1313/3-configcognito/3.2-preparation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.2-preparation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.2-preparation/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/3.3-authenticationandstorage/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.3-authenticationandstorage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.3-authenticationandstorage/"
+                />
+  </url><url>
     <loc>//localhost:1313/3-configcognito/</loc>
     <xhtml:link
                 rel="alternate"
@@ -168,6 +180,66 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/"
+                />
+  </url><url>
+    <loc>//localhost:1313/3-configcognito/3.4-accesslevel/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-configcognito/3.4-accesslevel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-configcognito/3.4-accesslevel/"
+                />
+  </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/"
+                />
+  </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/"
+                />
+  </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/"
+                />
+  </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>

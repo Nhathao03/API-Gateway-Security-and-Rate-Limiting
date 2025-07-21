@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test API with Front-end on AWS API Gateway Security and Rate Limiting</title>
+    <link>//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/</link>
+    <description>Recent content in Test API with Front-end on AWS API Gateway Security and Rate Limiting</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
