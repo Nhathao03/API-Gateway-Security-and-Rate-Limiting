@@ -98,11 +98,11 @@
 	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
 },
 {
-	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/",
-	"title": "Kiểm tra API với giao diện người dùng",
+	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/",
+	"title": "Kiểm tra API bằng Postman",
 	"tags": [],
 	"description": "",
-	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
+	"content": "Cập nhật Lambda function Mở bảng điều khiển AWS Lambda Console Chọn hàm upload_documents Comment dòng 13 và mở comment dòng 12 Ấn Deloy Cấu hình API Gateway Mở bảng điều khiển Amazon API Gateway Console\nẤn Create API Kéo xuống mục REST API, ấn Build Để mặc định REST protocol.\nChọn New API Nhập tên API, ví dụ: fcj-dms-api-5801 Chọn kiểu Endpoint là Regional Ấn Create API Chọn API Gateway đã tạo Chọn Create Resource để tạo resource cho API. Nhập tên cho resource: docs, sau đó ấn Create Resource Chọn resource docs, sau đó ấn Create Method Thiết lập method như sau:\nGiữ mặc định kiểu tích hợp là Lambda Function Tích vào Lambda Proxy integration Chọn cùng của Lambda function mà bạn đã tạo Chọn hàm upload_document Cuối cùng ấn Save Sau đó tạo method POST, ấn Create Resource để tạo resource. Nhập tên resource {id}, sau đó ấn Create Resource Chọn resource {id}, sau đó ấn Create Method Thiết lập method như sau:\nGiữ mặc định kiểu tích hợp là Lambda Function Tích vào Lambda Proxy integration Chọn cùng của Lambda function mà bạn đã tạo Chọn hàm list_documents Cuối cùng ấn Save Click Create Method to create a new method Thiết lập method như sau:\nGiữ mặc định kiểu tích hợp là Lambda Function Tích vào Lambda Proxy integration Chọn cùng của Lambda function mà bạn đã tạo Chọn hàm delete_document Cuối cùng ấn Save Chọn method DELETE, sau đó ấn Edit tại mục Method request settings Mở rộng mục URL Query String Parameters, ấn Add query string để thêm một parameter mới\nNhập tên parameter: file. Parameter này lưu giá trị tên của file mà bạn muốn xoá. Ấn Save Chọn resource docs, sau đó ấn Enable CORS Tích vào POST, sau đó ấn Save Chọn resource {id}, sau đó ấn Enable CORS 21.Tích vào GET và DELETE, sau đó ấn Save Sau khi hoàn thành thiết lập, chúng ta deploy API. Chọn /docs, sau đó ấn Deploy API Chọn [New Stage]\nNhập tên stage: dev Ấn Deploy Ghi lại URL của API dùng cho phần tiếp theo. Mở rộng stage, chọn method POST và ghi lại URL. Chọn method DELETE và ghi lại URL. Chọn method GET và ghi lại URL. Bạn đã hoàn thành việc thiết lập API. Tiếp theo chúng ta sẽ kiểm tra hoạt động của API và tích hợp nó vào ứng dụng của mình.\n"
 },
 {
 	"uri": "//localhost:1313/vi/2-deloydatabase/2.3-testlambdafunctions/",
@@ -131,6 +131,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Khi tải tệp lên S3 bucket, chúng ta có 3 cấp độ truy cập là public, protected và private:\nPublic: Tất cả người dùng ứng dụng của bạn có thể truy cập. Các tệp được lưu trữ dưới đường dẫn chung/trong bộ chứa S3 của bạn. Protected: Tất cả người dùng có thể đọc nhưng chỉ người dùng tạo mới có thể ghi. Các tệp được lưu trữ trong protected/{user_identity_id}/ trong đó user_identity_id tương ứng với ID nhận dạng Amazon Cognito duy nhất cho người dùng đó. Private: Chỉ có thể truy cập cho người dùng cá nhân. Các tệp được lưu trữ trong private/{user_identity_id}/ trong đó user_identity_id tương ứng với ID nhận dạng Amazon Cognito duy nhất cho người dùng đó. Trong phần này chúng ta sẽ thay đổi quyền của người dùng để tải tệp lên S3.\nTruy cập vào bảng điều khiển của Cognito console\nẤm Identity pools ở menu bên trái Chọn fcjdms\u0026hellip;identitypool\u0026hellip; Ấn tab User access và ghi lại tên của Authenticated role Mở bảng điều khiển của IAM Role\nChọn Roles ở menu bên trái Nhập tên của Authenticated role và ấn vào role tìm thấy Mở rộng chính sách để xem quyền của user Chọn chính sách Protected_policy_\u0026hellip;\nẤn Remove Chúng ta sẽ xóa quyền ở mức độ truy cập là protected bởi vì ứng dụng đang sử dụng cấp độ đó.\nNhập tên chính sách và ấn Delete Bạn đã xóa thành công Trở về ứng dụng và chọn Add files, tiếp tục chọn tệp mà bạn muốn tải lên. Sau đó ấn Upload Truy cập vào bảng điều khiển Inspect | Console. Chúng ta đã nhận được một lỗi. Thêm lại quyền cho người dùng.\nẤm Add permissions Chọn Create inline policy Chọn service là S3 Tại mục Actions | Read, chọn GetObject Tại mục Actions | Write, chọn PutObject và DeleteObject Tại mục Resources, chọn Add ARN Nhập ARN: arn:aws:s3:::YOUR_BUCKET-dev/protected/${cognito-identity.amazonaws.com:sub}/* Thay thế YOUR_BUCKET bằng tên bucket mà bạn đã tạo trước đó.\nẤn Add Ấn Review policy Nhập tên chính sách: Protected_policy. Sau đó ấn Create policy Trở về ứng dụng, tải lại tệp mà bạn vừa thất bại\nẤn Add files, chọn tệp mà bạn muốn tải lên Ấn Upload Mở bảng điều khiển của S3 bucket xem tệp đã tải thành công hay chưa. "
+},
+{
+	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/",
+	"title": "Kiểm tra API với giao diện người dùng",
+	"tags": [],
+	"description": "",
+	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
 },
 {
 	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/",

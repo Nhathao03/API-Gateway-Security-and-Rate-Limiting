@@ -50,6 +50,18 @@
                 href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/"
                 />
   </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/"
+                />
+  </url><url>
     <loc>//localhost:1313/3-configcognito/3.1-introduceamplify/</loc>
     <xhtml:link
                 rel="alternate"
@@ -72,6 +84,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/1-introduce/"
+                />
+  </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/"
                 />
   </url><url>
     <loc>//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/</loc>
@@ -170,6 +194,18 @@
                 href="//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/"
                 />
   </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/"
+                />
+  </url><url>
     <loc>//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/</loc>
     <xhtml:link
                 rel="alternate"
@@ -194,42 +230,6 @@
                 href="//localhost:1313/3-configcognito/3.4-accesslevel/"
                 />
   </url><url>
-    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/"
-                />
-  </url><url>
-    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/"
-                />
-  </url><url>
-    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/"
-                />
-  </url><url>
     <loc>//localhost:1313/4-frontendintergrationwithfrontend/</loc>
     <xhtml:link
                 rel="alternate"
@@ -240,6 +240,30 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/4-frontendintergrationwithfrontend/"
+                />
+  </url><url>
+    <loc>//localhost:1313/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/"
+                />
+  </url><url>
+    <loc>//localhost:1313/5-configamazoncloudfront/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-configamazoncloudfront/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-configamazoncloudfront/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>

@@ -112,11 +112,11 @@
 	"content": "In this section, we will create a function to delete document information stored in the DynamoDB table by user id and filename.\nOpen AWS Lambda console Click Create function Enter function name: delete_documents Select Python 3.9 for Runtime Click Create function Enter the following code for the lambda_function.py file: import json import boto3 import os client = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): # TODO implement table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] error = None doc_pk = event[\u0026#39;pathParameters\u0026#39;][\u0026#39;id\u0026#39;] print(\u0026#34;doc_pk \u0026#34;, doc_pk) doc_sk = event[\u0026#39;queryStringParameters\u0026#39;][\u0026#39;file\u0026#39;] print(\u0026#34;doc_sk \u0026#34;, doc_sk) table = client.Table(table_name) key = { \u0026#39;user_id\u0026#39;:doc_pk, \u0026#39;file\u0026#39;: doc_sk } try: table.delete_item(Key = key) except Exception as e: error = e except Exception as e: error = e if error is None: message = \u0026#39;delete document successful!\u0026#39; else: print(error) message = \u0026#39;delete document fail\u0026#39; return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: message, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#39;Access-Control-Allow-Origin\u0026#39;: \u0026#39;*\u0026#39; }, } Then click Deloy The above code executes to get the user’s TABLE_NAME and id environment variables from the event. Then query to the DynamoDB table provided that the value of Partition key is equal to the user’s id. Then reformat the data returned after the query.\nWe need to add an environment variable to the function. Click the Configuration tab, then select Environment variables in the left menu. Press Edit Click Add environment variable Enter TABLE_NAME as key Enter the DynamoDB table name that you just created Click Save Next, add permissions for function to access DynamoDB table Click Permission on the left menu Click on the execution role of the function Expand the AWSLambdaBasicExecutionRole… policy, then click Edit Click JSON. Copy the JSON below into the editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;dynamodb:DeleteItem\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Replace REGION and ACCOUNT_ID with the region you create the table and your account id.\nClick Review policy Click Save changes "
 },
 {
-	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithfrontend/",
-	"title": "Test API with Front-end",
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/",
+	"title": "Test API with Postman",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "In this step, we will test operation of the APIs using Postman tool.\nTest the listing API Create new collection, then click Bank collection Enter collection name, such as: fcjdmswebstore-5801\nClick Add request Select GET method Replace {id} with abcd1234 Click Send Successful results Test the creating API Similarly add new request Select POST method Enter URL of the writing API that recorded from the previous step In Body pattern, select raw Copy the below text block: {\r\u0026#34;user_id\u0026#34;: \u0026#34;abcd1234\u0026#34;,\r\u0026#34;file\u0026#34;: \u0026#34;flowers.png\u0026#34;,\r\u0026#34;folder\u0026#34;: \u0026#34;\u0026#34;,\r\u0026#34;identityId\u0026#34;: \u0026#34;123456cvbn\u0026#34;,\r\u0026#34;modified\u0026#34;: \u0026#34;21-03-2023\u0026#34;,\r\u0026#34;size\u0026#34;: \u0026#34;32KB\u0026#34;,\r\u0026#34;type\u0026#34;: \u0026#34;png\u0026#34;,\r\u0026#34;tag\u0026#34;: \u0026#34;image\u0026#34;\r} Click Send Open the console of DynamoDB, select Documents and select the Explore items table to check the results: Test the deleting API Similarly add new request Select DELETE method Enter URL of the writing API that recorded from the previous step, replace {id} with abcd1234 In the Params section, enter file for the key and flowers.png for the value Click Send Successful results Back to the Documents table, click the Refresh button to see the results "
 },
 {
 	"uri": "//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/",
@@ -138,6 +138,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/",
+	"title": "Test APIs with Front-end",
+	"tags": [],
+	"description": "",
+	"content": "After testing that the APIs work properly with Postman, we will test the APIs that are called with the front-end built from part 2.\nOpen constant.js in the root folder of project Change value of APP_API_URL with your URL: Save file Run the command lines under here: yarn build\raws s3 cp build s3://BUCKET_NAME --recursive Replace BUCKET_NAME with the bucket name you created in part 1.\nGo back to the web application in part 1. Log in with the account you registered in workshop 2. Click Upload Click Add files Select the files you want to upload Can enter tag or ignore Click Upload Return to the DynamoDB dashboard and click the Refresh icon to see the results. Open the console of the S3 bucket, check if the file has been uploaded. Return to the application, and select the My Document tab on the left menu. You will see a list of files that have just been uploaded. Click Choose to switch to delete mode Select the file you want to delete Click Delete Click OK to confirm deleting File has been deleted Check Documents table "
 },
 {
 	"uri": "//localhost:1313/categories/",
