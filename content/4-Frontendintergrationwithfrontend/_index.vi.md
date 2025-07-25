@@ -5,12 +5,9 @@ chapter : false
 pre : " <b> 4. </b> "
 ---
 
-### Tổng quan
-Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.
-
 ### Nội dung 
-  - [Chuẩn bị](3.1-IntroduceAmplify/)
-  - [Xác thực và lưu trữ](3.2-Preparation/)
-  - [Cấp độ truy cập](3.3-Authenticationandstorage/)
-
+  - [Triển khai giao diện người dùng](4.1-Deloyfrontend/)
+  - [Cấu hình API Gateway](4.2-Configapigateway/)
+  - [Kiểm tra API với Postman](4.3-Testapiwithpostman/)
+  - [Kiểm tra API với giao diện người dùng](4.4-Testapiwithfrontend/)
 

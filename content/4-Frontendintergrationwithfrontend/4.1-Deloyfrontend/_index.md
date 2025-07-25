@@ -5,7 +5,7 @@ chapter : false
 pre : " <b> 4.1 </b> "
 ---
 
-In the first step in this workshop, we will host the web application with S3 Static website hosting
+In the first step in this serious, we will host the web application with S3 Static website hosting
 
 1. Open [Amazon S3 Console](https://console.aws.amazon.com/s3)
 2. Click **Create Bucket**

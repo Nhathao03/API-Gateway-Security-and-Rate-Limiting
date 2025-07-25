@@ -5,7 +5,7 @@ chapter : false
 pre : " <b> 4.1 </b> "
 ---
 
-Bước đầu trong bài này, chúng ta sẽ host ứng dụng web với S3 Static website hosting:
+Bước đầu trong phần này, chúng ta sẽ host ứng dụng web với S3 Static website hosting:
 
 1. Mở bảng điều khiển [Amazon S3 Console](https://console.aws.amazon.com/s3)
 2. Nhấn chọn **Create Bucket**
