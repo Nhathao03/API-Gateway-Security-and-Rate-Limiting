@@ -28,6 +28,13 @@
 	"content": "In this section we will create a function to list the documents stored in the DynamoDB table by the user’s id.\nOpen AWS Lambda console Click Create function Enter function name: list_documents Select Python 3.9 for Runtime Click Create function Enter the following code for the lambda_function.py file: import json import boto3 import os from decimal import * from boto3.dynamodb.types import TypeDeserializer dynamodb = boto3.client(\u0026#39;dynamodb\u0026#39;) serializer = TypeDeserializer() class DecimalEncoder(json.JSONEncoder): def default(self, obj): if isinstance(obj, Decimal): return str(obj) return json.JSONEncoder.default(self, obj) def deserialize(data): if isinstance(data, list): return [deserialize(v) for v in data] if isinstance(data, dict): try: return serializer.deserialize(data) except TypeError: return {k: deserialize(v) for k, v in data.items()} else: return data def lambda_handler(event, context): table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] user_id = event[\u0026#39;pathParameters\u0026#39;][\u0026#39;id\u0026#39;] print(user_id) docs = dynamodb.query( TableName=table_name, KeyConditionExpression=\u0026#34;user_id = :id\u0026#34;, ExpressionAttributeValues={ \u0026#34;:id\u0026#34;: { \u0026#39;S\u0026#39;: user_id } } ) format_data_docs = deserialize(docs[\u0026#34;Items\u0026#34;]) # TODO implement return { \u0026#34;statusCode\u0026#34;: 200, \u0026#34;headers\u0026#34;: { \u0026#34;Content-Type\u0026#34;: \u0026#34;application/json\u0026#34;, \u0026#34;Access-Control-Allow-Origin\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Access-Control-Allow-Methods\u0026#34;: \u0026#34;GET,PUT,POST,DELETE, OPTIONS\u0026#34;, \u0026#34;Access-Control-Allow-Headers\u0026#34;: \u0026#34;Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token,XKey,Authorization\u0026#34; }, \u0026#34;body\u0026#34;: json.dumps(format_data_docs, cls=DecimalEncoder) } Then click Deloy The above code executes to get the user’s TABLE_NAME and id environment variables from the event. Then query to the DynamoDB table provided that the value of Partition key is equal to the user’s id. Then reformat the data returned after the query.\nWe need to add an environment variable to the function. Click the Configuration tab, then select Environment variables in the left menu. Press Edit Click Add environment variable Enter TABLE_NAME as key Enter the DynamoDB table name that you just created Click Save Next, add permissions for function to access DynamoDB table Click Permission on the left menu Click on the execution role of the function Expand the AWSLambdaBasicExecutionRole… policy, then click Edit Click JSON. Copy the JSON below into the editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;dynamodb:Query\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Replace REGION and ACCOUNT_ID with the region you create the table and your account id.\nClick Review policy Click Save changes "
 },
 {
+	"uri": "//localhost:1313/7-configiam/7.1-createpolicy/",
+	"title": "Create Policy",
+	"tags": [],
+	"description": "",
+	"content": "Create new policy Open AWS IAM Click Policy, then click Create policy In the Specify permissions section: Click JSON Copy the below code block to Policy Click Next {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;execute-api:Invoke\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:execute-api:\u0026lt;REGION\u0026gt;:\u0026lt;ACCOUNT_ID\u0026gt;:\u0026lt;API_ID\u0026gt;/*\u0026#34;\r}\r]\r} In the Policy details section: Enter policy name: fcjdmswebstore_5801_policy Click Next "
+},
+{
 	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/",
 	"title": "Deloy Front-end",
 	"tags": [],
@@ -61,6 +68,13 @@
 	"tags": [],
 	"description": "",
 	"content": "This section will create a function to add document information stored in the DynamoDB table.\nOpen AWS Lambda console Click Create function Enter function name: upload_document Select Python 3.9 for Runtime Click Create function Enter the following code for the lambda_function.py file: import json import boto3 import os from datetime import datetime, timezone dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] now = datetime.now(tz=timezone.utc) dt_string = now.strftime(\u0026#34;%d/%m/%Y %H:%M:%S\u0026#34;) #doc_data = json.loads(event[\u0026#34;body\u0026#34;]) doc_data = event[\u0026#34;body\u0026#34;] path = \u0026#34;protected/{}/{}\u0026#34;.format(doc_data[\u0026#39;identityId\u0026#39;], doc_data[\u0026#39;file\u0026#39;]) doc_data.update({\u0026#34;path\u0026#34;: path, \u0026#34;modified\u0026#34;: dt_string}) table = dynamodb.Table(table_name) table.put_item(Item = doc_data) # TODO implement return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: \u0026#39;successfully upload!\u0026#39;, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#34;Access-Control-Allow-Headers\u0026#34;: \u0026#34;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization\u0026#34;, \u0026#34;Access-Control-Allow-Origin\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Access-Control-Allow-Methods\u0026#34;: \u0026#34;GET,PUT,POST,DELETE,OPTIONS\u0026#34; } } Then click Deloy The above code executes to get the user’s TABLE_NAME and id environment variables from the event. Then query to the DynamoDB table provided that the value of Partition key is equal to the user’s id. Then reformat the data returned after the query.\nWe need to add an environment variable to the function. Click the Configuration tab, then select Environment variables in the left menu. Press Edit Click Add environment variable Enter TABLE_NAME as key Enter the DynamoDB table name that you just created Click Save Next, add permissions for function to access DynamoDB table Click Permission on the left menu Click on the execution role of the function Expand the AWSLambdaBasicExecutionRole… policy, then click Edit Click JSON. Copy the JSON below into the editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;dynamoDB:PutItem\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Replace REGION and ACCOUNT_ID with the region you create the table and your account id.\nClick Review policy Click Save changes "
+},
+{
+	"uri": "//localhost:1313/7-configiam/7.2-createuser/",
+	"title": "Create IAM User",
+	"tags": [],
+	"description": "",
+	"content": "Create IAM User Click Users, then click Create user In the User details section: Enter username: Admin_fcjdmswebstore_5801 Click to I want to create an IAM user Click Custom password, then enter your password Click Next In the Set permisstions section: Click Attach policies directly Search for fcj, then choose fcjdmswebstore_5801_policy Click Next Click Create user Select User, you created Click Create access key In the Access key best practices \u0026amp; alternatives section:\nClick Command Line Interface(CLI) Click I understand above recommendation and want to proceed to create an access key Click Create access key In the Retrieve access keys section:\nClick Download .csv file, then click Done "
 },
 {
 	"uri": "//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/",
@@ -105,6 +119,13 @@
 	"content": "Overview In this series, we will use the Amplify library to authenticate users with Amazon Cognito, uploading files to the S3 bucket.\nContent Preparation Authentication and Storage Access level "
 },
 {
+	"uri": "//localhost:1313/7-configiam/7.3-configiaminapi/",
+	"title": "Config IAM in API",
+	"tags": [],
+	"description": "",
+	"content": "Config IAM in API Open API Gateway Select API created Click Resources Click GET method, then click Edit In the Edit method request section: In Authorization, choose AWS_IAM Click Save Similarly, do the same with POST and DELETE method.\nClick /docs, then click Deloy API In the Deloy API\nSelect New stage Enter stage name: dev Click Deloy "
+},
+{
 	"uri": "//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/",
 	"title": "Create deleting function",
 	"tags": [],
@@ -147,6 +168,13 @@
 	"content": "After testing that the APIs work properly with Postman, we will test the APIs that are called with the front-end built from part 2.\nOpen constant.js in the root folder of project Change value of APP_API_URL with your URL: Save file Run the command lines under here: yarn build\raws s3 cp build s3://BUCKET_NAME --recursive Replace BUCKET_NAME with the bucket name you created in part 1.\nGo back to the web application in part 1. Log in with the account you registered in workshop 2. Click Upload Click Add files Select the files you want to upload Can enter tag or ignore Click Upload Return to the DynamoDB dashboard and click the Refresh icon to see the results. Open the console of the S3 bucket, check if the file has been uploaded. Return to the application, and select the My Document tab on the left menu. You will see a list of files that have just been uploaded. Click Choose to switch to delete mode Select the file you want to delete Click Delete Click OK to confirm deleting File has been deleted Check Documents table "
 },
 {
+	"uri": "//localhost:1313/7-configiam/7.4-testiampostman/",
+	"title": "Test IAM with Postman",
+	"tags": [],
+	"description": "",
+	"content": "Test API with Postman Open Postman Select method GET created Replace {id} with abcd1234 Select tab Authorization In the auth type, choose AWS Signature Enter Accesskey and Secretkey Enter AWS Region, such as: ap-southeast-1 Enter Service name: execute-api Click Send Successful results Similarly, do the same with POST and DELETE method.\nIf Authorization are not configured, the result will be displayed information.\n{\r\u0026#34;message\u0026#34;: \u0026#34;Missing Authentication Token\u0026#34;\r} "
+},
+{
 	"uri": "//localhost:1313/5-configamazoncloudfront/",
 	"title": "Config Amazon CloudFront",
 	"tags": [],
@@ -159,6 +187,13 @@
 	"tags": [],
 	"description": "",
 	"content": "In this section, we will configure WAF to protect our website, protect against SQL Injection attacks, DDoS,\u0026hellip;\nGo AWS WAF Console Click Create web ACL In the Web ACL details section. In the Resource type section, click Global resources. In the Name section type Protection-fcjdmswebstore-5801. In the Description section type Web ACL for the fcjdmswebstore-5801. In the Associated AWS resources section, Click Add AWS resources. In the AWS resources. Click CloudFront Distributions Click E373NUKDTTVAF8 - d3nkar1nu5y1m0.cloudfront.net (CloudFront Distributions we created) Click Add Click Next In the Rules section.\nClick Add rules. Click Add managed rule groups In the Add managed rule groups page, Click AWS managed rule groups. Select Core Rule Set, SQL Database and Known bad inputs Drag the screen down, Click Add rules In the Add managed rule groups page, click Next. In the Set rule priority page, click Next In the Configure metrics page, click Next In the Review and create web ACL page, Drag the screen down, click Create web ACL. Click Web ACL created Click Rule tab Click Add rules, then click Add my own rules and rule groups In Rule type section, click Rule builder Enter rule name BlockSQLiLoginPath In the Statement In Inspect, choose URI path In Match type, choose Exactly matches string In String to match, enter /signin (Your URL login in your website) In Text transformation Choose URI decode Click Add text transformation, then choose Lowercase Click Add text transformation, then choose Compress whitespace Choose Block in Action Click Add rule Click Save Open page Login in your website\nEnter username: ' OR '1'='1\nEnter password: 123\nClick Sign in Lick rightmost button , choose Inspect\nOn the right, choose » and choose Network\nCheck status code appear error 403 Forbidden Open AWS WAF Console Click Sampled requests You will see Metric name BlockSQLiLoginPath blocked Finally we have successfully configured WAF for the website, next we will continue to configure CloudWatch\n"
+},
+{
+	"uri": "//localhost:1313/7-configiam/",
+	"title": "Config IAM",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will configure IAM to increase security for the API.\nContent Create new policy Create IAM user Config IAM in API Test IAM with Postman "
 },
 {
 	"uri": "//localhost:1313/categories/",

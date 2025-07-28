@@ -278,6 +278,18 @@
                 href="//localhost:1313/vi/6-protectionwithwaf/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/7-configiam/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-configiam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-configiam/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
