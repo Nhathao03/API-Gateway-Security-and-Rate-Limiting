@@ -207,7 +207,7 @@
 	"title": "Clean up resources",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "Delete WAF Resources Delete WAF Web ACL: Go to the AWS WAF console Select your Web ACL Remove associated CloudFront distribution Click Delete Delete CloudFront Distribution Delete CloudFront distribution: Go to the CloudFront console Select your distribution Click Disable and wait for deployment Once disabled, click Delete Delete API Gateway Resources Delete the API Gateway: Go to the API Gateway console Select your API Click Actions → Delete API Confirm deletion Delete Lambda Functions Delete Lambda functions: Go to the Lambda console Delete all functions created (listing, creating, deleting) Click Actions → Delete Delete Cognito Resources Delete Cognito User Pool: Go to the Cognito console Delete User Pool and Identity Pool created by Amplify Delete S3 Resources Delete S3 buckets: Go to the S3 console Empty and delete all buckets created Delete Amplify deployment bucket Delete DynamoDB Table Delete DynamoDB table: Go to the DynamoDB console Select the Documents table Click Delete table Delete IAM Resources Delete IAM roles and policies: Go to the IAM console Delete custom roles and policies created Delete IAM users created for testing Delete CloudWatch Resources Delete CloudWatch log groups (optional): Go to the CloudWatch console Navigate to Logs → Log groups Delete log groups created by services "
 },
 {
 	"uri": "//localhost:1313/categories/",
