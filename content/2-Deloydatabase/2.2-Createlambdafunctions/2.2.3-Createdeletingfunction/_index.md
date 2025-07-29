@@ -7,6 +7,7 @@ pre : " <b> 2.2.3 </b> "
 
 In this section, we will create a function to delete document information stored in the DynamoDB table by user id and filename.
 
+## Create function delete
 1. Open [AWS Lambda console](https://console.aws.amazon.com/lambda/)
 2. Click **Create function**
 

@@ -35,6 +35,13 @@
 	"content": "CREATE DYNAMODB TABLE Open DynamoDB console Click Create table Enter table name: Documents Enter Parition key is user_id Enter Sort key is file In Table setting section, select Customsize setting Keep DynamoDB Standard for Table class Select On-demand for Capacity mode Scroll to the bottom of the page, click Create table "
 },
 {
+	"uri": "//localhost:1313/vi/7-configiam/7.1-createpolicy/",
+	"title": "Tạo chính sach mới",
+	"tags": [],
+	"description": "",
+	"content": "In this section, chúng ta sẽ cấu hình IAM để tăng bảo mật cho API.\nTạo chính sách mới Mở bảng điều khiển AWS IAM Ấn Policy, sau đó ấn Create policy Tại mục Specify permissions: Ấn JSON Sao chép chính sách dưới đây vào mục Policy Ấn Next {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;execute-api:Invoke\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:execute-api:\u0026lt;REGION\u0026gt;:\u0026lt;ACCOUNT_ID\u0026gt;:\u0026lt;API_ID\u0026gt;/*\u0026#34;\r}\r]\r} Tại mục Policy details: Nhập tên chính sách: fcjdmswebstore_5801_policy Ấn Next "
+},
+{
 	"uri": "//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/",
 	"title": "Tạo function liệt kê",
 	"tags": [],
@@ -84,6 +91,13 @@
 	"content": "Trong phần này chúng ta sẽ tạo function để thêm thông tin tài liệu được lưu trong DynamoDB table.\nMở bảng điều kiển AWS Lambda console Nhấn nút Create function Nhập tên function: upload_document Chọn Python 3.9 cho mục Runtime Nhấn nút Create function Nhập vào đoạn code sau cho tệp lambda_function.py: import json import boto3 import os from datetime import datetime, timezone dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] now = datetime.now(tz=timezone.utc) dt_string = now.strftime(\u0026#34;%d/%m/%Y %H:%M:%S\u0026#34;) #doc_data = json.loads(event[\u0026#34;body\u0026#34;]) doc_data = event[\u0026#34;body\u0026#34;] path = \u0026#34;protected/{}/{}\u0026#34;.format(doc_data[\u0026#39;identityId\u0026#39;], doc_data[\u0026#39;file\u0026#39;]) doc_data.update({\u0026#34;path\u0026#34;: path, \u0026#34;modified\u0026#34;: dt_string}) table = dynamodb.Table(table_name) table.put_item(Item = doc_data) # TODO implement return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: \u0026#39;successfully upload!\u0026#39;, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#34;Access-Control-Allow-Headers\u0026#34;: \u0026#34;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization\u0026#34;, \u0026#34;Access-Control-Allow-Origin\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Access-Control-Allow-Methods\u0026#34;: \u0026#34;GET,PUT,POST,DELETE,OPTIONS\u0026#34; } } Sau đó nhấn nút Deloy Đoạn code trên thực hiện lấy biến môi trường TABLE_NAME và dữ liệu của event. Sau đó thêm từng item vào DynamoDB table.\nChúng ta cần thêm biến môi trường cho function. Ấn tab Configuration, sau đó chọn Environment variables ở menu phía bên trái. Ấn Edit Nhấn nút Add environment variable Nhập TABLE_NAME vào key Nhập tên DynamoDB table bạn vừa tạo làm giá trị Nhấn nút Save Tiếp theo, thêm quyền cho function để truy cập vào DynamoDB table Nhấn nút Permission ở menu bên trái Ấn vào tên role mà lambda function đang thực hiện Mở rộng chính sách AWSLambdaBasicExecutionRole… sau đó ấn Edit Nhấn nút JSON. Sao chép đoạn json dưới đây vào editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;dynamodb:Query\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Thay thế REGION và ACCOUNT_ID bằng vùng mà bạn tạo bảng và account id của bạn.\nNhấn nút Review policy Nhấn nút Save changes "
 },
 {
+	"uri": "//localhost:1313/vi/7-configiam/7.2-createuser/",
+	"title": "Tạo IAM User",
+	"tags": [],
+	"description": "",
+	"content": "Tạo IAM User Ấn Users, sau đó ấn Create user Tại mục User details: Nhập username: Admin_fcjdmswebstore_5801 Ấn I want to create an IAM user Ấn Custom password, sau đó nhập password Ấn Next Tại mục Set permisstions: Ấn Attach policies directly Tìm kiếm fcj, sau đó chọn fcjdmswebstore_5801_policy Ấn Next Ấn Create user Chọn User mà bạn đã tạo Ấn Create access key Tại mục Access key best practices \u0026amp; alternatives:\nẤn Command Line Interface(CLI) Ấn I understand above recommendation and want to proceed to create an access key Ấn Create access key Tại mục Retrieve access keys\nẤn Download .csv file, sau đó ấn Done "
+},
+{
 	"uri": "//localhost:1313/vi/2-deloydatabase/",
 	"title": "Triển khai cơ sở dữ liệu",
 	"tags": [],
@@ -96,6 +110,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
+},
+{
+	"uri": "//localhost:1313/vi/7-configiam/7.3-configiaminapi/",
+	"title": "Cấu hình IAM trong API",
+	"tags": [],
+	"description": "",
+	"content": "Cấu hình IAM trong API Mở bảng điều khiển API Gateway Chọn API đã tạo Ấn Resources Chọn method GET, sau đó ấn Edit Tại mục Edit method request: Tại Authorization, chọn AWS_IAM Ấn Save Tương tự, thực hiện với phương thức POST và DELETE.\nẤn /docs, sau đó ấn Deloy API Tại Deloy API\nChọn New stage Nhập tên stage: dev Ấn Deloy "
 },
 {
 	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/",
@@ -140,6 +161,13 @@
 	"content": "Tổng quan Trong phần này, chúng ta sẽ sử dụng thư viện Amplify để xác thực người dùng bằng Amazon Cognito, upload tệp lên S3 bucket.\nNội dung Chuẩn bị Xác thực và lưu trữ Cấp độ truy cập "
 },
 {
+	"uri": "//localhost:1313/vi/7-configiam/7.4-testiampostman/",
+	"title": "Kiểm tra IAM với Postman",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm tra API với Postman Mở Postman Chọn method GET đã tạo Thay thế {id} với abcd1234 Chọn tab Authorization Tại auth type, chọn AWS Signature Nhập Accesskey và Secretkey Nhập AWS Region, ví dụ như: ap-southeast-1 Nhập Service name: execute-api Ấn Send Kết quả thành công Tương tự, thực hiện với phương thức POST và DELETE.\nNếu Authorization chưa được cấu hình thì kết quả sẽ được hiển thị thông báo.\n{\r\u0026#34;message\u0026#34;: \u0026#34;Missing Authentication Token\u0026#34;\r} "
+},
+{
 	"uri": "//localhost:1313/vi/4-frontendintergrationwithfrontend/",
 	"title": "Tích hợp giao diện người dùng với API",
 	"tags": [],
@@ -161,11 +189,25 @@
 	"content": "Trong phần này, chúng ta sẽ cấu hình WAF để bảo vệ trang web của mình, chống lại các cuộc tấn công SQL Injection, DDoS,\u0026hellip;\nMở bảng điều khiển AWS WAF Console Ấn Create web ACL Tại mục Web ACL details. Tại Resource type , click Global resources. Tại Name Protection-fcjdmswebstore-5801. Tại Description Web ACL for the fcjdmswebstore-5801. Tại Associated AWS resources ấn Add AWS resources. Tại AWS resources. Ấn CloudFront Distributions Ấn E373NUKDTTVAF8 - d3nkar1nu5y1m0.cloudfront.net (CloudFront Distributions chúng ta đã tạo) Ấn nút Add Ấn nút Next Tại mục Rules.\nẤn Add rules. Ấn Add managed rule groups Tại trang Add managed rule groups, ấn AWS managed rule groups. Chọn Core Rule Set, SQL Database và Known bad inputs Cuộn xuống cuối trang, ấn Add rules Tại trang Add managed rule groups, ấn Next. Tại trang Set rule priority, ấn Next Tại trang Configure metrics, ấn Next Tại trang Review and create web ACL, cuộn xuống cuối trang sau đó ấn Create web ACL. Ấn vào Web ACL created Ấn tab Rule Ấn Add rules, sau đó ấn Add my own rules and rule groups Tại Rule type, ấn Rule builder Nhập tên rule: BlockSQLiLoginPath Tại Statement Tại Inspect, chọn URI path Tại Match type, chọn Exactly matches string Tại String to match, nhập /signin (URL ở trang đăng nhập trong website của bạn) Tại Text transformation Chọn URI decode Ấn Add text transformation, sau đó chọn Lowercase Ấn Add text transformation, sau đó chọn Compress whitespace Chọn Block tại Action Ấn Add rule Ấn Save Mở trang đăng nhập tại website của bạn\nNhập username: ' OR '1'='1\nNhập password: 123\nẤn Sign in Nhấp chuột phải, chọn Inspect\nChọn tab Network\nKiểm tra status code sẽ thấy xuất hiện lỗi 403 Forbidden Mở bảng điều kiển AWS WAF Console Ấn tab Sampled requests Bạn sẽ nhìn thấy Metric name BlockSQLiLoginPath đã bị chặn Finally we have successfully configured WAF for the website, next we will continue to configure CloudWatch\n"
 },
 {
-	"uri": "//localhost:1313/vi/7-configiam/",
+	"uri": "//localhost:1313/vi/8-configcloudwatch/",
 	"title": "Bảo vệ với WAF",
 	"tags": [],
 	"description": "",
 	"content": "Trong phần này, chúng ta sẽ cấu hình WAF để bảo vệ trang web của mình, chống lại các cuộc tấn công SQL Injection, DDoS,\u0026hellip;\nMở bảng điều khiển AWS WAF Console Ấn Create web ACL Tại mục Web ACL details. Tại Resource type , click Global resources. Tại Name Protection-fcjdmswebstore-5801. Tại Description Web ACL for the fcjdmswebstore-5801. Tại Associated AWS resources ấn Add AWS resources. Tại AWS resources. Ấn CloudFront Distributions Ấn E373NUKDTTVAF8 - d3nkar1nu5y1m0.cloudfront.net (CloudFront Distributions chúng ta đã tạo) Ấn nút Add Ấn nút Next Tại mục Rules.\nẤn Add rules. Ấn Add managed rule groups Tại trang Add managed rule groups, ấn AWS managed rule groups. Chọn Core Rule Set, SQL Database và Known bad inputs Cuộn xuống cuối trang, ấn Add rules Tại trang Add managed rule groups, ấn Next. Tại trang Set rule priority, ấn Next Tại trang Configure metrics, ấn Next Tại trang Review and create web ACL, cuộn xuống cuối trang sau đó ấn Create web ACL. Ấn vào Web ACL created Ấn tab Rule Ấn Add rules, sau đó ấn Add my own rules and rule groups Tại Rule type, ấn Rule builder Nhập tên rule: BlockSQLiLoginPath Tại Statement Tại Inspect, chọn URI path Tại Match type, chọn Exactly matches string Tại String to match, nhập /signin (URL ở trang đăng nhập trong website của bạn) Tại Text transformation Chọn URI decode Ấn Add text transformation, sau đó chọn Lowercase Ấn Add text transformation, sau đó chọn Compress whitespace Chọn Block tại Action Ấn Add rule Ấn Save Mở trang đăng nhập tại website của bạn\nNhập username: ' OR '1'='1\nNhập password: 123\nẤn Sign in Nhấp chuột phải, chọn Inspect\nChọn tab Network\nKiểm tra status code sẽ thấy xuất hiện lỗi 403 Forbidden Mở bảng điều kiển AWS WAF Console Ấn tab Sampled requests Bạn sẽ nhìn thấy Metric name BlockSQLiLoginPath đã bị chặn Finally we have successfully configured WAF for the website, next we will continue to configure CloudWatch\n"
+},
+{
+	"uri": "//localhost:1313/vi/9-cleanup/",
+	"title": "Bảo vệ với WAF",
+	"tags": [],
+	"description": "",
+	"content": "Trong phần này, chúng ta sẽ cấu hình WAF để bảo vệ trang web của mình, chống lại các cuộc tấn công SQL Injection, DDoS,\u0026hellip;\nMở bảng điều khiển AWS WAF Console Ấn Create web ACL Tại mục Web ACL details. Tại Resource type , click Global resources. Tại Name Protection-fcjdmswebstore-5801. Tại Description Web ACL for the fcjdmswebstore-5801. Tại Associated AWS resources ấn Add AWS resources. Tại AWS resources. Ấn CloudFront Distributions Ấn E373NUKDTTVAF8 - d3nkar1nu5y1m0.cloudfront.net (CloudFront Distributions chúng ta đã tạo) Ấn nút Add Ấn nút Next Tại mục Rules.\nẤn Add rules. Ấn Add managed rule groups Tại trang Add managed rule groups, ấn AWS managed rule groups. Chọn Core Rule Set, SQL Database và Known bad inputs Cuộn xuống cuối trang, ấn Add rules Tại trang Add managed rule groups, ấn Next. Tại trang Set rule priority, ấn Next Tại trang Configure metrics, ấn Next Tại trang Review and create web ACL, cuộn xuống cuối trang sau đó ấn Create web ACL. Ấn vào Web ACL created Ấn tab Rule Ấn Add rules, sau đó ấn Add my own rules and rule groups Tại Rule type, ấn Rule builder Nhập tên rule: BlockSQLiLoginPath Tại Statement Tại Inspect, chọn URI path Tại Match type, chọn Exactly matches string Tại String to match, nhập /signin (URL ở trang đăng nhập trong website của bạn) Tại Text transformation Chọn URI decode Ấn Add text transformation, sau đó chọn Lowercase Ấn Add text transformation, sau đó chọn Compress whitespace Chọn Block tại Action Ấn Add rule Ấn Save Mở trang đăng nhập tại website của bạn\nNhập username: ' OR '1'='1\nNhập password: 123\nẤn Sign in Nhấp chuột phải, chọn Inspect\nChọn tab Network\nKiểm tra status code sẽ thấy xuất hiện lỗi 403 Forbidden Mở bảng điều kiển AWS WAF Console Ấn tab Sampled requests Bạn sẽ nhìn thấy Metric name BlockSQLiLoginPath đã bị chặn Finally we have successfully configured WAF for the website, next we will continue to configure CloudWatch\n"
+},
+{
+	"uri": "//localhost:1313/vi/7-configiam/",
+	"title": "Cấu hình IAM",
+	"tags": [],
+	"description": "",
+	"content": "Trong phần này, chúng ta sẽ cấu hình IAM để tăng độ bảo mật cho API\nNội dung Tạo chính sách mới Tạo IAM user Cấu hình IAM trong API Kiểm tra IAM với Postman "
 },
 {
 	"uri": "//localhost:1313/vi/categories/",

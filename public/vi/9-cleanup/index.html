@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Triển khai Back-end API :: AWS API Gateway Security and Rate Limiting</title>
+    <title>Dọn dẹp tài nguyên :: AWS API Gateway Security and Rate Limiting</title>
 
     
-    <link href="/css/nucleus.css?1751339322" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751339322" rel="stylesheet">
-    <link href="/css/hybrid.css?1751339322" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751339322" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751339322" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751339322" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751339322" rel="stylesheet">
-    <link href="/css/theme.css?1751339322" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751339322" rel="stylesheet">
+    <link href="/css/nucleus.css?1753773519" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1753773519" rel="stylesheet">
+    <link href="/css/hybrid.css?1753773519" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1753773519" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1753773519" rel="stylesheet">
+    <link href="/css/auto-complete.css?1753773519" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1753773519" rel="stylesheet">
+    <link href="/css/theme.css?1753773519" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1753773519" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751339322" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1753773519" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751339322"></script>
+    <script src="/js/jquery-3.3.1.min.js?1753773519"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,8 +58,8 @@
 </div>
 
 
-<script type="text/javascript" src="/js/lunr.min.js?1751339322"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751339322"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1753773519"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1753773519"></script>
 
 <script type="text/javascript">
     
@@ -67,7 +67,7 @@
     
 </script>
 
-<script type="text/javascript" src="/js/search.js?1751339322"></script>
+<script type="text/javascript" src="/js/search.js?1753773519"></script>
 
     
   </div>
@@ -85,7 +85,7 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
   
@@ -94,7 +94,7 @@
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+           <b> 1. </b> Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -114,7 +114,7 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/" title="Các bước chuẩn bị" class="dd-item 
+    <li data-nav-id="/vi/2-deloydatabase/" title="Triển khai cơ sở dữ liệu" class="dd-item 
         
         
   
@@ -122,8 +122,8 @@
 
         
         ">
-      <a href="/vi/2-prerequiste/">
-           <b> 2. </b> Các bước chuẩn bị
+      <a href="/vi/2-deloydatabase/">
+           <b> 2. </b> Triển khai cơ sở dữ liệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -148,7 +148,7 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createvpc/" title="Chuẩn bị VPC và EC2" class="dd-item 
+    <li data-nav-id="/vi/2-deloydatabase/2.1-createdynamodbtable/" title="Tạo bảng với DynamoDB" class="dd-item 
         
         
   
@@ -156,8 +156,8 @@
 
         
         ">
-      <a href="/vi/2-prerequiste/2.1-createvpc/">
-           <b> 2.1 </b> Chuẩn bị VPC và EC2
+      <a href="/vi/2-deloydatabase/2.1-createdynamodbtable/">
+           <b> 2.1 </b> Tạo bảng với DynamoDB
           
             <i class="fas fa-check read-icon"></i>
           
@@ -179,7 +179,7 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.2-createsubnet/" title="Tạo IAM Role" class="dd-item 
+    <li data-nav-id="/vi/2-deloydatabase/2.2-createlambdafunctions/" title="Tạo các Lambda function" class="dd-item 
         
         
   
@@ -187,8 +187,144 @@
 
         
         ">
-      <a href="/vi/2-prerequiste/2.2-createsubnet/">
-           <b> 2.2 </b> Tạo IAM Role
+      <a href="/vi/2-deloydatabase/2.2-createlambdafunctions/">
+           <b> 2.2 </b> Tạo các Lambda function
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/" title="Tạo function liệt kê" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/">
+           <b> 2.2.1 </b> Tạo function liệt kê
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/" title="Tạo function tạo dữ liệu" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/">
+           <b> 2.2.2 </b> Tạo function tạo dữ liệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/" title="Tạo function xóa dữ liệu" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/">
+           <b> 2.2.3 </b> Tạo function xóa dữ liệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-deloydatabase/2.3-testlambdafunctions/" title="Kiểm tra các funcrion" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/2-deloydatabase/2.3-testlambdafunctions/">
+           <b> 2.3 </b> Kiểm tra các funcrion
           
             <i class="fas fa-check read-icon"></i>
           
@@ -217,7 +353,7 @@
  
   
     
-    <li data-nav-id="/vi/3-deloybackendapi/" title="Triển khai Back-end API" class="dd-item 
+    <li data-nav-id="/vi/3-configcognito/" title="Cấu hình Cognito" class="dd-item 
         
         
   
@@ -225,8 +361,412 @@
 
         
         ">
-      <a href="/vi/3-deloybackendapi/">
-           <b> 3. </b> Triển khai Back-end API
+      <a href="/vi/3-configcognito/">
+           <b> 3. </b> Cấu hình Cognito
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-configcognito/3.1-introduceamplify/" title="Giới thiệu về Amplify" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/3-configcognito/3.1-introduceamplify/">
+           <b> 3.1 </b> Giới thiệu về Amplify
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-configcognito/3.2-preparation/" title="Chuẩn bị" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/3-configcognito/3.2-preparation/">
+           <b> 3.2 </b> Chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-configcognito/3.3-authenticationandstorage/" title="Xác thực và lưu trữ" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/3-configcognito/3.3-authenticationandstorage/">
+           <b> 3.3 </b> Xác thực và lưu trữ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/" title="Application với Amplify" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/">
+           <b> 3.3.1 </b> Application với Amplify
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/" title="Storage với Amplify" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/">
+           <b> 3.3.2 </b> Storage với Amplify
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-configcognito/3.4-accesslevel/" title="Cấp độ truy cập" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/3-configcognito/3.4-accesslevel/">
+           <b> 3.4 </b> Cấp độ truy cập
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-frontendintergrationwithfrontend/" title="Tích hợp giao diện người dùng với API" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/4-frontendintergrationwithfrontend/">
+           <b> 4. </b> Tích hợp giao diện người dùng với API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/" title="Triển khai giao diện người dùng" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/">
+           <b> 4.1 </b> Triển khai giao diện người dùng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/" title="Cấu hình API Gateway" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/">
+           <b> 4.2 </b> Cấu hình API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/" title="Kiểm tra API bằng Postman" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
+           <b> 4.3 </b> Kiểm tra API bằng Postman
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/" title="Kiểm tra API với giao diện người dùng" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/">
+           <b> 4.4 </b> Kiểm tra API với giao diện người dùng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-configamazoncloudfront/" title="Cấu hình Amazon CloudFront" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/5-configamazoncloudfront/">
+           <b> 5. </b> Cấu hình Amazon CloudFront
           
             <i class="fas fa-check read-icon"></i>
           
@@ -246,7 +786,7 @@
  
   
     
-    <li data-nav-id="/vi/4-deloydatabase/" title="Triển khai Back-end API" class="dd-item 
+    <li data-nav-id="/vi/6-protectionwithwaf/" title="Bảo vệ với WAF" class="dd-item 
         
         
   
@@ -254,8 +794,8 @@
 
         
         ">
-      <a href="/vi/4-deloydatabase/">
-           <b> 3. </b> Triển khai Back-end API
+      <a href="/vi/6-protectionwithwaf/">
+           <b> 6. </b> Bảo vệ với WAF
           
             <i class="fas fa-check read-icon"></i>
           
@@ -275,7 +815,7 @@
  
   
     
-    <li data-nav-id="/vi/5-deloyfrontend/" title="Triển khai Back-end API" class="dd-item 
+    <li data-nav-id="/vi/7-configiam/" title="Cấu hình IAM" class="dd-item 
         
         
   
@@ -283,8 +823,173 @@
 
         
         ">
-      <a href="/vi/5-deloyfrontend/">
-           <b> 3. </b> Triển khai Back-end API
+      <a href="/vi/7-configiam/">
+           <b> 7. </b> Cấu hình IAM
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-configiam/7.1-createpolicy/" title="Tạo chính sach mới" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/7-configiam/7.1-createpolicy/">
+           <b> 7.1 </b> Tạo chính sach mới
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-configiam/7.2-createuser/" title="Tạo IAM User" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/7-configiam/7.2-createuser/">
+           <b> 7.2 </b> Tạo IAM User
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-configiam/7.3-configiaminapi/" title="Cấu hình IAM trong API" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/7-configiam/7.3-configiaminapi/">
+           <b> 7.3 </b> Cấu hình IAM trong API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-configiam/7.4-testiampostman/" title="Kiểm tra IAM với Postman" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/7-configiam/7.4-testiampostman/">
+           <b> 7.4 </b> Kiểm tra IAM với Postman
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-configcloudwatch/" title="Config CloudWatch to monitor user actions using API" class="dd-item 
+        
+        
+  
+
+
+        
+        ">
+      <a href="/vi/8-configcloudwatch/">
+           <b> 8. </b> Config CloudWatch to monitor user actions using API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -304,94 +1009,7 @@
  
   
     
-    <li data-nav-id="/vi/6-cloudfrontandwaf/" title="Triển khai Back-end API" class="dd-item 
-        
-        
-  
-
-
-        
-        ">
-      <a href="/vi/6-cloudfrontandwaf/">
-           <b> 3. </b> Triển khai Back-end API
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/7-apigateway/" title="Triển khai Back-end API" class="dd-item 
-        
-        
-  
-
-
-        
-        ">
-      <a href="/vi/7-apigateway/">
-           <b> 3. </b> Triển khai Back-end API
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/8-route53/" title="Triển khai Back-end API" class="dd-item 
-        
-        
-  
-
-
-        
-        ">
-      <a href="/vi/8-route53/">
-           <b> 3. </b> Triển khai Back-end API
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/9-cleanup/" title="Triển khai Back-end API" class="dd-item 
+    <li data-nav-id="/vi/9-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
         
         
   active
@@ -400,7 +1018,7 @@
         
         ">
       <a href="/vi/9-cleanup/">
-           <b> 3. </b> Triển khai Back-end API
+           <b> 9. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -548,7 +1166,7 @@
             
           
           
-            <a href='/vi/'>Triển khai website trên AWS</a> > Triển khai Back-end API
+            <a href='/vi/'>API Gateway Security and Rate Limiting</a> > Dọn dẹp tài nguyên
           
         
           
@@ -575,7 +1193,7 @@
           
             <h1>
               
-              Triển khai Back-end API
+              Dọn dẹp tài nguyên
             </h1>
           
 
@@ -678,6 +1296,53 @@
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -686,6 +1351,156 @@
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
                     
                         
             
@@ -751,6 +1566,9 @@
             
         
                     
+            
+        
+                    
                         
             
             
@@ -763,6 +1581,104 @@
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -809,10 +1725,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/8-route53/" title="Triển khai Back-end API"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/8-configcloudwatch/" title="Config CloudWatch to monitor user actions using API"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -822,19 +1738,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751339322"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751339322"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751339322"></script>
-    <script src="/js/jquery.sticky.js?1751339322"></script>
-    <script src="/js/featherlight.min.js?1751339322"></script>
-    <script src="/js/highlight.pack.js?1751339322"></script>
+    <script src="/js/clipboard.min.js?1753773519"></script>
+    <script src="/js/perfect-scrollbar.min.js?1753773519"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1753773519"></script>
+    <script src="/js/jquery.sticky.js?1753773519"></script>
+    <script src="/js/featherlight.min.js?1753773519"></script>
+    <script src="/js/highlight.pack.js?1753773519"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751339322"></script>
-    <script src="/js/learn.js?1751339322"></script>
-    <script src="/js/hugo-learn.js?1751339322"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1753773519"></script>
+    <script src="/js/learn.js?1753773519"></script>
+    <script src="/js/hugo-learn.js?1753773519"></script>
 
-    <link href="/mermaid/mermaid.css?1751339322" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751339322"></script>
+    <link href="/mermaid/mermaid.css?1753773519" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1753773519"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

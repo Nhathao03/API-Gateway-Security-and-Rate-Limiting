@@ -6,7 +6,7 @@ pre : " <b> 2.2.1 </b> "
 ---
 
 In this section we will create a function to list the documents stored in the DynamoDB table by the user’s id.
-
+## Create function listing
 1. Open [AWS Lambda console](https://console.aws.amazon.com/lambda/)
 2. Click **Create function**
 

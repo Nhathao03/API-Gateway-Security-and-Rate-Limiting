@@ -62,6 +62,18 @@
                 href="//localhost:1313/vi/2-deloydatabase/2.1-createdynamodbtable/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/7-configiam/7.1-createpolicy/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-configiam/7.1-createpolicy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-configiam/7.1-createpolicy/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/</loc>
     <xhtml:link
                 rel="alternate"
@@ -146,6 +158,18 @@
                 href="//localhost:1313/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/7-configiam/7.2-createuser/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-configiam/7.2-createuser/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-configiam/7.2-createuser/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/2-deloydatabase/</loc>
     <xhtml:link
                 rel="alternate"
@@ -168,6 +192,18 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/3-configcognito/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/7-configiam/7.3-configiaminapi/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-configiam/7.3-configiaminapi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-configiam/7.3-configiaminapi/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/</loc>
@@ -242,6 +278,18 @@
                 href="//localhost:1313/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/7-configiam/7.4-testiampostman/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-configiam/7.4-testiampostman/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-configiam/7.4-testiampostman/"
+                />
+  </url><url>
     <loc>//localhost:1313/vi/4-frontendintergrationwithfrontend/</loc>
     <xhtml:link
                 rel="alternate"
@@ -276,6 +324,30 @@
                 rel="alternate"
                 hreflang="vi"
                 href="//localhost:1313/vi/6-protectionwithwaf/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/8-configcloudwatch/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/8-configcloudwatch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/8-configcloudwatch/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/9-cleanup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/9-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/9-cleanup/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/7-configiam/</loc>

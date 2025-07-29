@@ -7,6 +7,7 @@ pre : " <b> 2.2.2 </b> "
 
 Trong phần này chúng ta sẽ tạo function để thêm thông tin tài liệu được lưu trong DynamoDB table.
 
+## Tạo hàm thêm mới
 1. Mở bảng điều kiển [AWS Lambda console](https://console.aws.amazon.com/lambda/)
 2. Nhấn nút **Create function**
 

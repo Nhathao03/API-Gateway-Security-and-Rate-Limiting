@@ -7,6 +7,7 @@ pre : " <b> 2.2.2 </b> "
 
 This section will create a function to add document information stored in the DynamoDB table.
 
+## Create function creating
 1. Open [AWS Lambda console](https://console.aws.amazon.com/lambda/)
 2. Click **Create function**
 

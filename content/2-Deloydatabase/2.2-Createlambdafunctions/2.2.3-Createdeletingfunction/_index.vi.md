@@ -7,6 +7,7 @@ pre : " <b> 2.2.3 </b> "
 
 Trong phần này chúng ta sẽ tạo function để xoá thông tin tài liệu được lưu trong DynamoDB table theo id của người dùng và tên tệp.
 
+## Tạo hàm xóa dữ liệu
 1. Mở bảng điều kiển [AWS Lambda console](https://console.aws.amazon.com/lambda/)
 2. Nhấn nút **Create function**
 
