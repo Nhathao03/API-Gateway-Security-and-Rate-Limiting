@@ -34,7 +34,7 @@ In this section, we will configure cloudwatch to monitor user actions using API.
 ![API Gateway](/images/8.configcloudwatch/007-configcloudwatch.png)
 
 {{% notice info %}}
-Here you will see all the actions we have done with the API, we have done the GET method. But we will edit a part in the Log and follow to see more information.
+Here you will see all the actions we have done with the API, we have done the **GET** method. But we will edit a part in the Log and follow to see more information.
 {{% /notice %}}
 
 8. Reopen the **Stages**
