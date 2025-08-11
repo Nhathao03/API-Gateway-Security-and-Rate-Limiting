@@ -326,18 +326,6 @@
                 href="//localhost:1313/6-protectionwithwaf/"
                 />
   </url><url>
-    <loc>//localhost:1313/9-cleanup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/9-cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/9-cleanup/"
-                />
-  </url><url>
     <loc>//localhost:1313/7-configiam/</loc>
     <xhtml:link
                 rel="alternate"
@@ -360,6 +348,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/8-configcloudwatch/"
+                />
+  </url><url>
+    <loc>//localhost:1313/9-cleanup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/9-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/9-cleanup/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>
