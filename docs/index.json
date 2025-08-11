@@ -1,0 +1,225 @@
+[
+{
+	"uri": "//localhost:1313/",
+	"title": "API Gateway Security and Rate Limiting",
+	"tags": [],
+	"description": "",
+	"content": "Work with Amazon API Gateway Security and Rate Limiting - Session Manager Overall In this lab, you\u0026rsquo;ll learn the basics and practice of Amazon API Gateway Security and Rate Limiting - Session Manager Perform creating public and private instance connections.\n"
+},
+{
+	"uri": "//localhost:1313/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/",
+	"title": "Authentication with Anplify",
+	"tags": [],
+	"description": "",
+	"content": " Run the following command at the root of the application you cloned to add authentication to the application: amplify add auth Select follow the informations below:\nDo you want to use the default authentication and security configuration? Default configuration Warning: you will not be able to edit these selections. How do you want users to be able to sign in? Username Do you want to configure advanced settings? No, I am done. Run the following command to update cloud resources: amplify push Navigate to the CloudFormation console to check if the stack has been created. Click id of UserPool to open dashboard of Cognito User Pool Run the following command to start the application: npm start Click Sign up to register a new account. Enter user information: Username, for example: admin Enter your email. Password, for example: Admin123 Click **Sign up Navigate to Cognito User Pool console, select User tab you will see a registered but unconfirmed user Open your email to get the verification code that was sent automatically. Enter the verification code into the app and click Submit Navigate to Cognito User Pool console, click the Refresh icon and you will see that the user is confirmed Log in to the app with the account you just registered with. Successful login. "
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/2.1-createdynamodbtable/",
+	"title": "Create DynamoDB table",
+	"tags": [],
+	"description": "",
+	"content": "CREATE DYNAMODB TABLE Open DynamoDB console Click Create table Enter table name: Documents Enter Parition key is user_id Enter Sort key is file In Table setting section, select Customsize setting Keep DynamoDB Standard for Table class Select On-demand for Capacity mode Scroll to the bottom of the page, click Create table "
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/",
+	"title": "Create listing function",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will create a function to list the documents stored in the DynamoDB table by the user’s id.\nCreate function listing Open AWS Lambda console Click Create function Enter function name: list_documents Select Python 3.9 for Runtime Click Create function Enter the following code for the lambda_function.py file: import json import boto3 import os from decimal import * from boto3.dynamodb.types import TypeDeserializer dynamodb = boto3.client(\u0026#39;dynamodb\u0026#39;) serializer = TypeDeserializer() class DecimalEncoder(json.JSONEncoder): def default(self, obj): if isinstance(obj, Decimal): return str(obj) return json.JSONEncoder.default(self, obj) def deserialize(data): if isinstance(data, list): return [deserialize(v) for v in data] if isinstance(data, dict): try: return serializer.deserialize(data) except TypeError: return {k: deserialize(v) for k, v in data.items()} else: return data def lambda_handler(event, context): table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] user_id = event[\u0026#39;pathParameters\u0026#39;][\u0026#39;id\u0026#39;] print(user_id) docs = dynamodb.query( TableName=table_name, KeyConditionExpression=\u0026#34;user_id = :id\u0026#34;, ExpressionAttributeValues={ \u0026#34;:id\u0026#34;: { \u0026#39;S\u0026#39;: user_id } } ) format_data_docs = deserialize(docs[\u0026#34;Items\u0026#34;]) # TODO implement return { \u0026#34;statusCode\u0026#34;: 200, \u0026#34;headers\u0026#34;: { \u0026#34;Content-Type\u0026#34;: \u0026#34;application/json\u0026#34;, \u0026#34;Access-Control-Allow-Origin\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Access-Control-Allow-Methods\u0026#34;: \u0026#34;GET,PUT,POST,DELETE, OPTIONS\u0026#34;, \u0026#34;Access-Control-Allow-Headers\u0026#34;: \u0026#34;Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token,XKey,Authorization\u0026#34; }, \u0026#34;body\u0026#34;: json.dumps(format_data_docs, cls=DecimalEncoder) } Then click Deloy The above code executes to get the user’s TABLE_NAME and id environment variables from the event. Then query to the DynamoDB table provided that the value of Partition key is equal to the user’s id. Then reformat the data returned after the query.\nWe need to add an environment variable to the function. Click the Configuration tab, then select Environment variables in the left menu. Press Edit Click Add environment variable Enter TABLE_NAME as key Enter the DynamoDB table name that you just created Click Save Next, add permissions for function to access DynamoDB table Click Permission on the left menu Click on the execution role of the function Expand the AWSLambdaBasicExecutionRole… policy, then click Edit Click JSON. Copy the JSON below into the editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;dynamodb:Query\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Replace REGION and ACCOUNT_ID with the region you create the table and your account id.\nClick Review policy Click Save changes "
+},
+{
+	"uri": "//localhost:1313/7-configiam/7.1-createpolicy/",
+	"title": "Create Policy",
+	"tags": [],
+	"description": "",
+	"content": "Create new policy Open AWS IAM Click Policy, then click Create policy In the Specify permissions section: Click JSON Copy the below code block to Policy Click Next {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;execute-api:Invoke\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:execute-api:\u0026lt;REGION\u0026gt;:\u0026lt;ACCOUNT_ID\u0026gt;:\u0026lt;API_ID\u0026gt;/*\u0026#34;\r}\r]\r} In the Policy details section: Enter policy name: fcjdmswebstore_5801_policy Click Next "
+},
+{
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.1-deloyfrontend/",
+	"title": "Deloy Front-end",
+	"tags": [],
+	"description": "",
+	"content": "In the first step in this serious, we will host the web application with S3 Static website hosting\nOpen Amazon S3 Console\nClick Create Bucket Enter bucket name, such as fcjdmswebstore-5801 Uncheck block from allowing public access\nCheck to I acknowledge that the current settings might result in this bucket and the objects within becoming public Click Create bucket button Click on created bucket Click Properties tab Scroll down to the bottom, click edit in Static web hosting pattern Select Enable to enable host web static on S3\nSelect Host a static website for Hosting type Enter index.html for Index document pattern Click Save changes After successfully enabling, please write down the path of the web After successful enable, please take note of the path of the web: Select Permissions tab Click Edit of Bucket policy pattern Copy the below code block to Policy {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;,\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::BUCKET_NAME/*\u0026#34;\r}\r]\r} Replace BUCKET_NAME with the bucket name you created, then click Save changes Open the src/component/Home/Upload.js file in the application’s source code directory and uncomment the code that calls the API to write data to DynamoDB. Next run the following command at the root of the project you downloaded. (FCJ-Serverless-DMS)\nyarn build\raws s3 cp build s3://BUCKET_NAME --recursive Replace BUCKET_NAME with the bucket name you created Result after uploading: Paste the web link you take notes into your web browser You have finished hosting your website on S3. In the next section, we update the lambda functions\n"
+},
+{
+	"uri": "//localhost:1313/3-configcognito/3.1-introduceamplify/",
+	"title": "Introduce Amplify",
+	"tags": [],
+	"description": "",
+	"content": "Overview AWS Amplify is a toolset that helps developers quickly build and deploy web and mobile applications integrated with AWS services such as API, Authentication, Storage, and Hosting. Amplify simplifies backend management, provides frontend libraries, and offers ready-to-use hosting services for production applications.\nAuthentication with Amplify Authentication with Amplify makes it easy to integrate user authentication features into applications using Amazon Cognito as the backend. It supports sign-up, sign-in, forgot password, multi-factor authentication (MFA), and social sign-in (Google, Facebook, Apple), allowing developers to quickly implement secure user management.\nStorage with Amplify Storage with Amplify provides a solution for storing files (images, videos, documents) via Amazon S3. Data can be managed with privacy controls (public, protected, private), integrated with user authentication to control access, and supports secure file upload, download, and sharing.\n"
+},
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Introduction to the Topic In the context of modern systems increasingly relying on APIs to facilitate communication between services, ensuring the security of APIs has become a critical task. An improperly secured API can become a vulnerability that exposes the entire system to attacks, resulting in data loss, service disruption, or security compliance violations.\nThe topic “API Security Gateway with Advanced Protection” focuses on implementing a highly secure API Gateway architecture on the AWS platform, fully integrated with modern protection layers and security standards, including:\nDeployment Objectives The guide will focus on configuring and deploying AWS native services to meet the following requirements:\nTechnical Requirement AWS Services Used Threat Protection AWS Shield, AWS WAF API Gateway Management Amazon API Gateway Authentication Amazon Cognito Business Logic AWS Lambda Data Storage Amazon S3, DynamoDB Monitoring Amazon CloudWatch "
+},
+{
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.2-configapigateway/",
+	"title": "Config API Gateway",
+	"tags": [],
+	"description": "",
+	"content": "Update Lambda function Open AWS Lambda Console Select upload_documents function Comment on line 13 and uncomment line 12 Click Deloy Config API Gateway Open Amazon API Gateway Console\nClick Create API Scroll down to REST API section, click Build Leave the default REST for the protocol.\nSelect New API Enter API name: fcj-dms-api-5801 Select Endpoint type as Regional Click Create API Select API Gateway created Click Create Resource to create resource for API. Enter resource name: docs, then click Create Resource Select docs resource, then click Create Method Set up the method as follows:\nKeep default Integration type as Lambda Function Check to Lambda Proxy integration Select the region of the Lambda function you created Select upload_document function Finally press Save After created POST method, click Create Resource to create next resource. Enter resource name: id and resource path as {id}, then click Create Resource Select {id} resource, then click Create Method Set up the method as follows:\nKeep default Integration type as Lambda Function Check to Lambda Proxy integration Select the region of the Lambda function you created Select list_documents function Finally press Save Click Create Method to create a new method Set up the method as follows:\nKeep default Integration type as Lambda Function Check to Lambda Proxy integration Select the region of the Lambda function you created Select delete_document function Finally press Save Select DELETE method, then click Edit in Method request settings Expand URL Query String Parameters section, click Add query string to add a new parameter\nEnter parameter name: file. This parameter is value of of the name of the file you want to delete. Click Save Select docs resource, then click Enable CORS Check to POST, then click Save Select {id} resource, then click Enable CORS Check to GET and DELETE, then click Save After completing the setup, we deploy the API. Select /docs, then click Deploy API Select [New Stage]\nEnter stage name: dev Click Deploy Note down the URL of the API used for the next section. Expand the stage, select the POST method and write down the URL. Expand the stage, select the DELETE method and write down the URL. Expand the stage, select the GET method and write down the URL. You have finished setting up the API. Next, we will test the API working and integrate it into our application.\n"
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/",
+	"title": "Create creating function",
+	"tags": [],
+	"description": "",
+	"content": "This section will create a function to add document information stored in the DynamoDB table.\nCreate function creating Open AWS Lambda console Click Create function Enter function name: upload_document Select Python 3.9 for Runtime Click Create function Enter the following code for the lambda_function.py file: import json import boto3 import os from datetime import datetime, timezone dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] now = datetime.now(tz=timezone.utc) dt_string = now.strftime(\u0026#34;%d/%m/%Y %H:%M:%S\u0026#34;) #doc_data = json.loads(event[\u0026#34;body\u0026#34;]) doc_data = event[\u0026#34;body\u0026#34;] path = \u0026#34;protected/{}/{}\u0026#34;.format(doc_data[\u0026#39;identityId\u0026#39;], doc_data[\u0026#39;file\u0026#39;]) doc_data.update({\u0026#34;path\u0026#34;: path, \u0026#34;modified\u0026#34;: dt_string}) table = dynamodb.Table(table_name) table.put_item(Item = doc_data) # TODO implement return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: \u0026#39;successfully upload!\u0026#39;, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#34;Access-Control-Allow-Headers\u0026#34;: \u0026#34;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization\u0026#34;, \u0026#34;Access-Control-Allow-Origin\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Access-Control-Allow-Methods\u0026#34;: \u0026#34;GET,PUT,POST,DELETE,OPTIONS\u0026#34; } } Then click Deloy The above code executes to get the user’s TABLE_NAME and id environment variables from the event. Then query to the DynamoDB table provided that the value of Partition key is equal to the user’s id. Then reformat the data returned after the query.\nWe need to add an environment variable to the function. Click the Configuration tab, then select Environment variables in the left menu. Press Edit Click Add environment variable Enter TABLE_NAME as key Enter the DynamoDB table name that you just created Click Save Next, add permissions for function to access DynamoDB table Click Permission on the left menu Click on the execution role of the function Expand the AWSLambdaBasicExecutionRole… policy, then click Edit Click JSON. Copy the JSON below into the editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;dynamoDB:PutItem\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Replace REGION and ACCOUNT_ID with the region you create the table and your account id.\nClick Review policy Click Save changes "
+},
+{
+	"uri": "//localhost:1313/7-configiam/7.2-createuser/",
+	"title": "Create IAM User",
+	"tags": [],
+	"description": "",
+	"content": "Create IAM User Click Users, then click Create user In the User details section: Enter username: Admin_fcjdmswebstore_5801 Click to I want to create an IAM user Click Custom password, then enter your password Click Next In the Set permisstions section: Click Attach policies directly Search for fcj, then choose fcjdmswebstore_5801_policy Click Next Click Create user Select User, you created Click Create access key In the Access key best practices \u0026amp; alternatives section:\nClick Command Line Interface(CLI) Click I understand above recommendation and want to proceed to create an access key Click Create access key In the Retrieve access keys section:\nClick Download .csv file, then click Done "
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/",
+	"title": "Create Lambda function",
+	"tags": [],
+	"description": "",
+	"content": "Content Create listing function Create creating function Create deleting function "
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/",
+	"title": "Deloy database",
+	"tags": [],
+	"description": "",
+	"content": "Content Create DynamoDB table Build and push image docker ECS Task Definition "
+},
+{
+	"uri": "//localhost:1313/3-configcognito/3.2-preparation/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "We perform the following steps to prepare for authentication and save files with the Amplify library in the following section:\nTo install Amplify CLI, run the command below: npm install -g @aws-amplify/cli You must install NodeJs before installing Amplify CLI You should create a user and configure an AWS profile with credentials on your machine.\nRun the below commands to clone the application to your device: git clone https://github.com/AWS-First-Cloud-Journey/FCJ-Serverless-DMS\rcd FCJ-Serverless-DMS\rnpm install Open the project and open src/component/Home/Upload.js file. Comment the block codes that call API to interact with DynamoDB To initialize Amplify for your application, run the following command from the application’s root directory:\namplify init Enter the following information:\n? Enter a name for the project `fcjdms`` The following configuration will be applied:\nProject information\n| Name: fcjdms\n| Environment: dev\n| Default editor: Visual Studio Code\n| App type: javascript\n| Javascript framework: react\n| Source Directory Path: src\n| Distribution Directory Path: build\n| Build Command: npm run-script build\n| Start Command: npm run-script start\n? Initialize the project with the above configuration? Yes\nUsing default provider awscloudformation\n? Select the authentication method you want to use: AWS profile\nFor more information on AWS Profiles, see:\nhttps://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html\n? Please choose the profile you want to use default\n? Help improve Amplify CLI by sharing non sensitive configurations on failures (y/N) › No\nOpen CloudFormation console\nSelect Stacks on the left menu, you will see the newly created stack. Click the Resources tab and you will see the resources that Amplify creates "
+},
+{
+	"uri": "//localhost:1313/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/",
+	"title": "Storage with Amplify",
+	"tags": [],
+	"description": "",
+	"content": "After you have successfully created an account with Cognito User Pool, we will use that account to upload files to S3 bucket with Amplify in this section.\nPress the combination Ctrl+C in terminal or command line\nRun the below command at the root of the application you cloned to add storage to the application:\namplify add storage Select and enter follow the below informations:\n? Please select from one of the below mentioned services: Content (Images, audio, video, etc.) Provide a friendly name for your resource that will be used to label this cateogry in the project: fcjdmsstore Provide bucket name: fcjdmsstore Who should have access: Auth users only What kind of access do you want for Authenticated user? Ấn tổ hợp Ctrl + A Do you want to add a Lambda Trigger for your S3 Bucket? no Run the following command to update cloud resources: amplify push Navigate to the CloudFormation console to check if the stack has been created. Click on a bucket’s name to open the S3 bucket’s dashboard Run the following command to start the application: npm start Click Upload Click Add files and select the files you want to upload Add tags to files or can be omitted. Then press Upload You have successfully uploaded your files Back to the S3 bucket dashboard, check if the files have been uploaded. You are done with user authentication and file upload to S3 with Amplify. The S3 bucket has created a protected folder because our application chooses Access Level as protected. To learn more about Access Level, go to the next section.\n"
+},
+{
+	"uri": "//localhost:1313/3-configcognito/3.3-authenticationandstorage/",
+	"title": "Authentication and Storage",
+	"tags": [],
+	"description": "",
+	"content": "This is the main part of this workshop, you will add user authentication and storage with Amplify to project.\nContent Authentication with amplify Storage with amplify "
+},
+{
+	"uri": "//localhost:1313/3-configcognito/",
+	"title": "Config Cognito",
+	"tags": [],
+	"description": "",
+	"content": "Overview In this series, we will use the Amplify library to authenticate users with Amazon Cognito, uploading files to the S3 bucket.\nContent Preparation Authentication and Storage Access level "
+},
+{
+	"uri": "//localhost:1313/7-configiam/7.3-configiaminapi/",
+	"title": "Config IAM in API",
+	"tags": [],
+	"description": "",
+	"content": "Config IAM in API Open API Gateway Select API created Click Resources Click GET method, then click Edit In the Edit method request section: In Authorization, choose AWS_IAM Click Save Similarly, do the same with POST and DELETE method.\nClick /docs, then click Deloy API In the Deloy API\nSelect New stage Enter stage name: dev Click Deloy "
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/",
+	"title": "Create deleting function",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will create a function to delete document information stored in the DynamoDB table by user id and filename.\nCreate function delete Open AWS Lambda console Click Create function Enter function name: delete_documents Select Python 3.9 for Runtime Click Create function Enter the following code for the lambda_function.py file: import json import boto3 import os client = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): # TODO implement table_name = os.environ[\u0026#39;TABLE_NAME\u0026#39;] error = None doc_pk = event[\u0026#39;pathParameters\u0026#39;][\u0026#39;id\u0026#39;] print(\u0026#34;doc_pk \u0026#34;, doc_pk) doc_sk = event[\u0026#39;queryStringParameters\u0026#39;][\u0026#39;file\u0026#39;] print(\u0026#34;doc_sk \u0026#34;, doc_sk) table = client.Table(table_name) key = { \u0026#39;user_id\u0026#39;:doc_pk, \u0026#39;file\u0026#39;: doc_sk } try: table.delete_item(Key = key) except Exception as e: error = e except Exception as e: error = e if error is None: message = \u0026#39;delete document successful!\u0026#39; else: print(error) message = \u0026#39;delete document fail\u0026#39; return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: message, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39;, \u0026#39;Access-Control-Allow-Origin\u0026#39;: \u0026#39;*\u0026#39; }, } Then click Deloy The above code executes to get the user’s TABLE_NAME and id environment variables from the event. Then query to the DynamoDB table provided that the value of Partition key is equal to the user’s id. Then reformat the data returned after the query.\nWe need to add an environment variable to the function. Click the Configuration tab, then select Environment variables in the left menu. Press Edit Click Add environment variable Enter TABLE_NAME as key Enter the DynamoDB table name that you just created Click Save Next, add permissions for function to access DynamoDB table Click Permission on the left menu Click on the execution role of the function Expand the AWSLambdaBasicExecutionRole… policy, then click Edit Click JSON. Copy the JSON below into the editor ,\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;dynamodb:DeleteItem\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:dynamodb:REGION:ACCOUNT_ID:table/Documents\u0026#34;\r} Replace REGION and ACCOUNT_ID with the region you create the table and your account id.\nClick Review policy Click Save changes "
+},
+{
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/",
+	"title": "Test API with Postman",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will test operation of the APIs using Postman tool.\nTest the listing API Create new collection, then click Bank collection Enter collection name, such as: fcjdmswebstore-5801\nClick Add request Select GET method Replace {id} with abcd1234 Click Send Successful results Test the creating API Similarly add new request Select POST method Enter URL of the writing API that recorded from the previous step In Body pattern, select raw Copy the below text block: {\r\u0026#34;user_id\u0026#34;: \u0026#34;abcd1234\u0026#34;,\r\u0026#34;file\u0026#34;: \u0026#34;flowers.png\u0026#34;,\r\u0026#34;folder\u0026#34;: \u0026#34;\u0026#34;,\r\u0026#34;identityId\u0026#34;: \u0026#34;123456cvbn\u0026#34;,\r\u0026#34;modified\u0026#34;: \u0026#34;21-03-2023\u0026#34;,\r\u0026#34;size\u0026#34;: \u0026#34;32KB\u0026#34;,\r\u0026#34;type\u0026#34;: \u0026#34;png\u0026#34;,\r\u0026#34;tag\u0026#34;: \u0026#34;image\u0026#34;\r} Click Send Open the console of DynamoDB, select Documents and select the Explore items table to check the results: Test the deleting API Similarly add new request Select DELETE method Enter URL of the writing API that recorded from the previous step, replace {id} with abcd1234 In the Params section, enter file for the key and flowers.png for the value Click Send Successful results Back to the Documents table, click the Refresh button to see the results "
+},
+{
+	"uri": "//localhost:1313/2-deloydatabase/2.3-testlambdafunctions/",
+	"title": "Test lambda function",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will create tests to see if the functions are working properly.\nTo test the functions, download the following file to your computer and run the command: aws dynamodb batch-write-item --request-items file://documentData.json\n📎 Document Data\ndocumentData.json (3 KB) Test listing function Open the list_documents function console Click Test tab Enter tc_1 for event name Enter the below json for Event JSON { \u0026#34;pathParameters\u0026#34;: {\r\u0026#34;id\u0026#34;: \u0026#34;abcd1234\u0026#34;\r}\r} Click Save, then click Test You will get all the information of the user\u0026rsquo;s files with the id abcd1234 Test creating function Open the upload_document function console Click Test tab Enter tc_1 for event name Enter the below json for Event JSON {\r\u0026#34;body\u0026#34;:{\r\u0026#34;user_id\u0026#34;: \u0026#34;abcd1234\u0026#34;,\r\u0026#34;file\u0026#34;: \u0026#34;aws_serverless.doc\u0026#34;,\r\u0026#34;folder\u0026#34;: \u0026#34;\u0026#34;,\r\u0026#34;identityId\u0026#34;: \u0026#34;123456cvbn\u0026#34;,\r\u0026#34;modified\u0026#34;: \u0026#34;13-03-2023\u0026#34;,\r\u0026#34;size\u0026#34;: \u0026#34;2MB\u0026#34;,\r\u0026#34;type\u0026#34;: \u0026#34;doc\u0026#34;,\r\u0026#34;tag\u0026#34;: \u0026#34;aws, serverless\u0026#34;\r}\r} Click Save, then click Test You will get a return result of succeeded Open Documents table to check if added successfully Test deleting function Open the delete_documents function console Click Test tab Enter tc_1 for event name Enter the below json for Event JSON {\r\u0026#34;pathParameters\u0026#34;: {\r\u0026#34;id\u0026#34;: \u0026#34;abcd1234\u0026#34;\r},\r\u0026#34;queryStringParameters\u0026#34;: {\r\u0026#34;file\u0026#34;: \u0026#34;aws-exports.js\u0026#34;\r}\r} Click Save, then click Test You will get a return result of succeeded Open Documents table to check if added successfully You are done creating Lambda functions that interact with DynamoDB. In the next post we will authenticate to the archive with the Amplify library.\n"
+},
+{
+	"uri": "//localhost:1313/3-configcognito/3.4-accesslevel/",
+	"title": "Access level",
+	"tags": [],
+	"description": "",
+	"content": "When uploading files to S3 bucket, we have 3 levels of access: public, protected and private:\nPublic: Accessible by all users of your app. Files are stored under the public/ path in your S3 bucket. Protected: Readable by all users, but writable only by the creating user. Files are stored under protected/{user_identity_id}/ where the user_identity_id corresponds to the unique Amazon Cognito Identity ID for that user. Private: Only accessible for the individual user. Files are stored under private/{user_identity_id}/ where the user_identity_id corresponds to the unique Amazon Cognito Identity ID for that user. In this section we will change the user permission to upload files to S3.\nOpen Cognito console\nClick Identity pools on the left menu Select fcjdms\u0026hellip;identitypool\u0026hellip; Click User access tab and note down the name of the Authenticated role Open IAM Role\nSelect Roles on the left menu Enter name of Authenticated role and click to searched role Expand policies to view user permissions Select Protected_policy_\u0026hellip; policy\nClick Remove We will remove the access level permission protected because the application is using that level.\nEnter policy name and click Delete You have successfully removed. Back in the application, click Add files and select the file you want to upload. Then click Upload Access to Inspect | Console mode. We received an error. Re-add permissions for the user.\nClick Add permissions Select Create inline policy Select S3 for service In Actions | Read section, select GetObject In Actions | Write section, select PutObject and DeleteObject In Resources secttion, click Add ARN Enter ARN: arn:aws:s3:::YOUR_BUCKET-dev/protected/${cognito-identity.amazonaws.com:sub}/* Replace YOUR_BUCKET with the bucket name you created earlier.\nClick Add Click Review policy Enter policy name: Protected_policy. Then click Create policy Go back to the web app, reload the file you just failed\nClick Add files, select the file you want to download Click Upload Open the console of the S3 bucket to see if the file has loaded successfully. "
+},
+{
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/",
+	"title": "Front-end intergration with gateway",
+	"tags": [],
+	"description": "",
+	"content": "Content Deloy front-end Config API Gateway Test API with Postman Test API with Front-end "
+},
+{
+	"uri": "//localhost:1313/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/",
+	"title": "Test APIs with Front-end",
+	"tags": [],
+	"description": "",
+	"content": "After testing that the APIs work properly with Postman, we will test the APIs that are called with the front-end built from part 2.\nOpen constant.js in the root folder of project Change value of APP_API_URL with your URL: Save file Run the command lines under here: yarn build\raws s3 cp build s3://BUCKET_NAME --recursive Replace BUCKET_NAME with the bucket name you created in part 1.\nGo back to the web application in part 1. Log in with the account you registered in workshop 2. Click Upload Click Add files Select the files you want to upload Can enter tag or ignore Click Upload Return to the DynamoDB dashboard and click the Refresh icon to see the results. Open the console of the S3 bucket, check if the file has been uploaded. Return to the application, and select the My Document tab on the left menu. You will see a list of files that have just been uploaded. Click Choose to switch to delete mode Select the file you want to delete Click Delete Click OK to confirm deleting File has been deleted Check Documents table "
+},
+{
+	"uri": "//localhost:1313/7-configiam/7.4-testiampostman/",
+	"title": "Test IAM with Postman",
+	"tags": [],
+	"description": "",
+	"content": "Test API with Postman Open Postman Select method GET created Replace {id} with abcd1234 Select tab Authorization In the auth type, choose AWS Signature Enter Accesskey and Secretkey Enter AWS Region, such as: ap-southeast-1 Enter Service name: execute-api Click Send Successful results Similarly, do the same with POST and DELETE method.\nIf Authorization are not configured, the result will be displayed information.\n{\r\u0026#34;message\u0026#34;: \u0026#34;Missing Authentication Token\u0026#34;\r} "
+},
+{
+	"uri": "//localhost:1313/5-configamazoncloudfront/",
+	"title": "Config Amazon CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "Using the AWS Management Console, we will create a CloudFront distribution, and configure it to serve the S3 bucket we previously created.\nOpen the Amazon CloudFront console at Amazon CloudFront\nFrom the console dashboard, click Create distribution Specify the following settings for the distribution:\nIn the Origin domain field Select the S3 bucket you created previously. In the Origin access, choose Legacy access identities In the Bucket policy, choose Yes, update the bucket policy Choose Create new OAI Choose Create Another field, let it default In the Settings Choose Use North America, Europe, Asia, Middle East, and Africa because, Vietnam in Asia\nIn the Default root object - optional, input file already upload on S3 (Fx: index.html)\nScroll down last page, choose Create distribution To return to the main CloudFront page click Distributions from the left navigation menu.\nAfter CloudFront creates your distribution which may take approximately a few minutes Column Status \u0026amp; Column Last modified has infomation like below. Lick on ID to get Distribution domain name When your distribution is deployed, confirm that you can access your content using your new CloudFront Distribution domain name which you can see in the console. Copy the Domain Name into a web browser to test. Result like below Check the period of time for brower loading index.html by Distribution domain name of CloudFront Lick rightmost button , choose Inspect On the right, choose » and choose Network Lick the icon reload page Imagine: your static web is hosted in Region US \u0026amp; has end user in Asian, the time to return results after 1 mouse click can be up to a few seconds or tens of seconds, that - will affect the user experience! But with CloudFront speed will always be optimal. Check the location of CloudFront Pop lick one time in domain name central page Check POP - Cloudfront, i request from Ho Chi Minh - so POP is: SGN50-P1 (with SGN is Saigon) example You now have content in a private S3 bucket, that only CloudFront has secure access to. CloudFront then serves the requests, effectively becoming a secure, reliable static hosting service with additional features available such as custom certificates and alternate domain names . "
+},
+{
+	"uri": "//localhost:1313/6-protectionwithwaf/",
+	"title": "Protection with WAF",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will configure WAF to protect our website, protect against SQL Injection attacks, DDoS,\u0026hellip;\nGo AWS WAF Console Click Create web ACL In the Web ACL details section. In the Resource type section, click Global resources. In the Name section type Protection-fcjdmswebstore-5801. In the Description section type Web ACL for the fcjdmswebstore-5801. In the Associated AWS resources section, Click Add AWS resources. In the AWS resources. Click CloudFront Distributions Click E373NUKDTTVAF8 - d3nkar1nu5y1m0.cloudfront.net (CloudFront Distributions we created) Click Add Click Next In the Rules section.\nClick Add rules. Click Add managed rule groups In the Add managed rule groups page, Click AWS managed rule groups. Select Core Rule Set, SQL Database and Known bad inputs Drag the screen down, Click Add rules In the Add managed rule groups page, click Next. In the Set rule priority page, click Next In the Configure metrics page, click Next In the Review and create web ACL page, Drag the screen down, click Create web ACL. Click Web ACL created Click Rule tab Click Add rules, then click Add my own rules and rule groups In Rule type section, click Rule builder Enter rule name BlockSQLiLoginPath In the Statement In Inspect, choose URI path In Match type, choose Exactly matches string In String to match, enter /signin (Your URL login in your website) In Text transformation Choose URI decode Click Add text transformation, then choose Lowercase Click Add text transformation, then choose Compress whitespace Choose Block in Action Click Add rule Click Save Open page Login in your website\nEnter username: ' OR '1'='1\nEnter password: 123\nClick Sign in Lick rightmost button , choose Inspect\nOn the right, choose » and choose Network\nCheck status code appear error 403 Forbidden Open AWS WAF Console Click Sampled requests You will see Metric name BlockSQLiLoginPath blocked Finally we have successfully configured WAF for the website, next we will continue to configure CloudWatch\n"
+},
+{
+	"uri": "//localhost:1313/7-configiam/",
+	"title": "Config IAM",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will configure IAM to increase security for the API.\nContent Create new policy Create IAM user Config IAM in API Test IAM with Postman "
+},
+{
+	"uri": "//localhost:1313/8-configcloudwatch/",
+	"title": "Config CloudWatch to monitor user actions using API",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will configure cloudwatch to monitor user actions using API.\nOpen API Gateway\nSelect API created Select Stage\nIn the Logs and tracing, click Edit In the Edit logs and tracing Choose Errors and info logs Click Save Open Postman and send any request Open CloudWatch\nClick Log groups Select API-Gateway-Execution-Logs_66r5ayu9s7/dev Select Log streams Copy the ARN, we will use it in the next part. Successful results Here you will see all the actions we have done with the API, we have done the GET method. But we will edit a part in the Log and follow to see more information.\nReopen the Stages In the Logs and tracing, click Edit Paste the ARN we recorded here Copy the below code block to Log format { \u0026#34;requestId\u0026#34;:\u0026#34;$context.requestId\u0026#34;, \u0026#34;ip\u0026#34;:\u0026#34;$context.identity.sourceIp\u0026#34;, \u0026#34;userAgent\u0026#34;:\u0026#34;$context.identity.userAgent\u0026#34;, \u0026#34;requestTime\u0026#34;:\u0026#34;$context.requestTime\u0026#34;, \u0026#34;method\u0026#34;:\u0026#34;$context.httpMethod\u0026#34;, \u0026#34;path\u0026#34;:\u0026#34;$context.resourcePath\u0026#34;, \u0026#34;status\u0026#34;:\u0026#34;$context.status\u0026#34;, \u0026#34;error\u0026#34;:\u0026#34;$context.error.message\u0026#34; } Click Save Open Postman and send request again Open CloudWatch and go to API-Gateway-Execution-Logs_66r5ayu9s7/dev Select newest Log streams You can see more details after we have configured "
+},
+{
+	"uri": "//localhost:1313/9-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "Delete WAF Resources Delete WAF Web ACL: Go to the AWS WAF console Select your Web ACL Remove associated CloudFront distribution Click Delete Delete CloudFront Distribution Delete CloudFront distribution: Go to the CloudFront console Select your distribution Click Disable and wait for deployment Once disabled, click Delete Delete API Gateway Resources Delete the API Gateway: Go to the API Gateway console Select your API Click Actions → Delete API Confirm deletion Delete Lambda Functions Delete Lambda functions: Go to the Lambda console Delete all functions created (listing, creating, deleting) Click Actions → Delete Delete Cognito Resources Delete Cognito User Pool: Go to the Cognito console Delete User Pool and Identity Pool created by Amplify Delete S3 Resources Delete S3 buckets: Go to the S3 console Empty and delete all buckets created Delete Amplify deployment bucket Delete DynamoDB Table Delete DynamoDB table: Go to the DynamoDB console Select the Documents table Click Delete table Delete IAM Resources Delete IAM roles and policies: Go to the IAM console Delete custom roles and policies created Delete IAM users created for testing Delete CloudWatch Resources Delete CloudWatch log groups (optional): Go to the CloudWatch console Navigate to Logs → Log groups Delete log groups created by services "
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

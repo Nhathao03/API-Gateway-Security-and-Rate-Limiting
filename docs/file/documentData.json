@@ -1,0 +1,136 @@
+{
+  "Documents": [
+    {
+      "PutRequest": {
+        "Item": {
+          "user_id": {
+            "S": "abcd1234"
+          },
+          "file": {
+            "S": "dynamoDB.json"
+          },
+          "folder": {
+            "S": ""
+          },
+          "identityId": {
+            "S": "123456cvbn"
+          },
+          "modified": {
+            "S": "13-03-2023"
+          },
+          "path": {
+            "S": "https://[S3_BUCKET_FILE_STORE].s3.[AWS_REGION].amazonaws.com/dynamoDB.json"
+          },
+          "size": {
+            "N": "223607"
+          },
+          "type": {
+            "S": "json"
+          },
+          "tag": {
+            "S": "data, workshop"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+          "Item": {
+            "user_id": {
+              "S": "abcd1234"
+            },
+            "file": {
+              "S": "Kahoot.xlsx"
+            },
+            "folder": {
+              "S": ""
+            },
+            "identityId": {
+              "S": "123456cvbn"
+            },
+            "modified": {
+              "S": "13-03-2023"
+            },
+            "path": {
+              "S": "https://[S3_BUCKET_FILE_STORE].s3.[AWS_REGION].amazonaws.com/Kahoot.xlsx"
+            },
+            "size": {
+              "N": "9130"
+            },
+            "type": {
+              "S": "xlsx"
+            },
+            "tag": {
+              "S": "fun"
+            }
+          }
+        }
+    },
+    {
+      "PutRequest": {
+          "Item": {
+            "user_id": {
+              "S": "abcd1234"
+            },
+            "file": {
+              "S": "CloudDeployment.drawio.png"
+            },
+            "folder": {
+              "S": ""
+            },
+            "identityId": {
+              "S": "123456cvbn"
+            },
+            "modified": {
+              "S": "13-03-2023"
+            },
+            "path": {
+              "S": "https://[S3_BUCKET_FILE_STORE].s3.[AWS_REGION].amazonaws.com/CloudDeployment.drawio.png"
+            },
+            "size": {
+              "N": "4557"
+            },
+            "type": {
+              "S": "png"
+            },
+            "tag": {
+              "S": "diagram"
+            }
+          }
+        }
+    },
+    {
+      "PutRequest": {
+          "Item": {
+            "user_id": {
+              "S": "abcd1234"
+            },
+            "file": {
+              "S": "aws-exports.js"
+            },
+            "folder": {
+              "S": ""
+            },
+            "identityId": {
+              "S": "123456cvbn"
+            },
+            "modified": {
+              "S": "13-03-2023"
+            },
+            "path": {
+              "S": "https://[S3_BUCKET_FILE_STORE].s3.[AWS_REGION].amazonaws.com/aws-exports.js"
+            },
+            "size": {
+              "N": "423"
+            },
+            "type": {
+              "S": "js"
+            },
+            "tag": {
+              "S": ""
+            }
+          }
+        }
+    }
+  ]
+}
