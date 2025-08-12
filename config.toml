@@ -1,6 +1,7 @@
 # Change the default theme to be use when building the site with Hugo
 baseURL = "https://Nhathao03.github.io/API-Gateway-Security-and-Rate-Limiting/"
 theme = "hugo-theme-learn"
+publishDir = "docs"
 
 # For search functionality
 [outputs]
