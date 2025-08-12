@@ -12,21 +12,21 @@
     <title>Create creating function :: AWS API Gateway Security and Rate Limiting</title>
 
     
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754974200" rel="stylesheet">
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754974200" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754974486" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754974486" rel="stylesheet">
     
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754974200" rel="stylesheet">
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754974486" rel="stylesheet">
     
     
 
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754974200"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754974486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,8 +58,8 @@
 </div>
 
 
-<script type="text/javascript" src="../../../API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754974200"></script>
-<script type="text/javascript" src="../../../API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754974200"></script>
+<script type="text/javascript" src="../../../API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754974486"></script>
+<script type="text/javascript" src="../../../API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754974486"></script>
 
 <script type="text/javascript">
     
@@ -67,7 +67,7 @@
     
 </script>
 
-<script type="text/javascript" src="../../../API-Gateway-Security-and-Rate-Limiting/js/search.js?1754974200"></script>
+<script type="text/javascript" src="../../../API-Gateway-Security-and-Rate-Limiting/js/search.js?1754974486"></script>
 
     
   </div>
@@ -1223,7 +1223,7 @@
 <li>Open <a href="https://console.aws.amazon.com/lambda/">AWS Lambda console</a></li>
 <li>Click <strong>Create function</strong></li>
 </ol>
-<p><img src="images/2.deloydatabase/005-createlistingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/005-createlistingfunction.png" alt="Creating function"></p>
 <ol start="3">
 <li>Enter function name: <code>upload_document</code></li>
 </ol>
@@ -1231,7 +1231,7 @@
 <li>Select <strong>Python 3.9</strong> for Runtime</li>
 <li>Click <strong>Create function</strong></li>
 </ul>
-<p><img src="images/2.deloydatabase/014-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/014-createcreatingfunction.png" alt="Creating function"></p>
 <ol start="4">
 <li>Enter the following code for the <strong>lambda_function.py</strong> file:</li>
 </ol>
@@ -1268,12 +1268,12 @@
 </span></span></code></pre></div><ul>
 <li>Then click <strong>Deloy</strong></li>
 </ul>
-<p><img src="images/2.deloydatabase/015-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/015-createcreatingfunction.png" alt="Creating function"></p>
 <p>The above code executes to get the user’s <strong>TABLE_NAME</strong> and <strong>id</strong> environment variables from the event. Then <strong>query</strong> to the DynamoDB table provided that the value of <strong>Partition key</strong> is equal to the user’s id. Then reformat the data returned after the query.</p>
 <ol start="5">
 <li>We need to add an environment variable to the function. Click the <strong>Configuration</strong> tab, then select <strong>Environment variables</strong> in the left menu. Press <strong>Edit</strong></li>
 </ol>
-<p><img src="images/2.deloydatabase/016-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/016-createcreatingfunction.png" alt="Creating function"></p>
 <ol start="6">
 <li>Click <strong>Add environment variable</strong></li>
 </ol>
@@ -1282,7 +1282,7 @@
 <li>Enter the DynamoDB table name that you just created</li>
 <li>Click <strong>Save</strong></li>
 </ul>
-<p><img src="images/2.deloydatabase/017-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/017-createcreatingfunction.png" alt="Creating function"></p>
 <ol start="7">
 <li>Next, add permissions for function to access DynamoDB table</li>
 </ol>
@@ -1290,11 +1290,11 @@
 <li>Click <strong>Permission</strong> on the left menu</li>
 <li>Click on the execution role of the function</li>
 </ul>
-<p><img src="images/2.deloydatabase/018-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/018-createcreatingfunction.png" alt="Creating function"></p>
 <ol start="8">
 <li>Expand the <strong>AWSLambdaBasicExecutionRole…</strong> policy, then click <strong>Edit</strong></li>
 </ol>
-<p><img src="images/2.deloydatabase/019-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/019-createcreatingfunction.png" alt="Creating function"></p>
 <ol start="9">
 <li>Click <strong>JSON</strong>. Copy the JSON below into the editor</li>
 </ol>
@@ -1308,11 +1308,11 @@
 <ul>
 <li>Click <strong>Review policy</strong></li>
 </ul>
-<p><img src="images/2.deloydatabase/020-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/020-createcreatingfunction.png" alt="Creating function"></p>
 <ol start="10">
 <li>Click <strong>Save changes</strong></li>
 </ol>
-<p><img src="images/2.deloydatabase/021-createcreatingfunction.png" alt="Creating function"></p>
+<p><img src="../../../API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/021-createcreatingfunction.png" alt="Creating function"></p>
 
 
 
@@ -1861,19 +1861,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754974201"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754974486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754974201"></script>
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754974201"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754974486"></script>
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754974486"></script>
 
-    <link href="../../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754974201" rel="stylesheet" />
-    <script src="../../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754974201"></script>
+    <link href="../../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754974486" rel="stylesheet" />
+    <script src="../../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754974486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

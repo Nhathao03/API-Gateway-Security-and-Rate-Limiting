@@ -9,17 +9,17 @@ Trong bước này, chúng ta sẽ kiểm tra hoạt động của các API bằ
 
 #### Kiểm tra API liệt kê
 1. Tạo collection mới, sau đó ấn **Bank collection**
-![Test API](images/4.frontendintergrationwithapigateway/046-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/046-frontendintergrationwithapigateway.png)
 
 2. Nhập tên cho collection, ví dụ như: `fcjdmswebstore-5801`
  + Ấn **Add request**
-![Test API](images/4.frontendintergrationwithapigateway/047-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/047-frontendintergrationwithapigateway.png)
  + Chọn method **GET** với `abcd1234`
  + Ấn **Send**
-![Test API](images/4.frontendintergrationwithapigateway/048-frontendintergrationwithapigateway.png) 
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/048-frontendintergrationwithapigateway.png) 
 
 3. Kết quả thành công
-![Test API](images/4.frontendintergrationwithapigateway/049-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/049-frontendintergrationwithapigateway.png)
 
 #### Kiểm tra API thêm mới
 1. Tương tự thêm request mới
@@ -42,22 +42,22 @@ Trong bước này, chúng ta sẽ kiểm tra hoạt động của các API bằ
 ```
 
  + Ấn **Send**
-![Test API](images/4.frontendintergrationwithapigateway/051-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/051-frontendintergrationwithapigateway.png)
 
 2. Mở bảng điều khiển **DynamoDB**, chọn **Documents** và chọn **Explore items** để kiểm tra kết quả:
-![Test API](images/4.frontendintergrationwithapigateway/052-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/052-frontendintergrationwithapigateway.png)
 
 #### Kiểm tra API xóa
 1. Tương tự thêm request mới
  + Chọn method **DELETE** 
  + Nhập URL của API ghi đã ghi lại từ bước trước, thay thế **{id}** với `abcd1234`
-![Test API](images/4.frontendintergrationwithapigateway/053-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/053-frontendintergrationwithapigateway.png)
  + Tại mục **Params**, nhập `file` cho key và `flowers.png` cho value
-![Test API](images/4.frontendintergrationwithapigateway/054-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/054-frontendintergrationwithapigateway.png)
 
 2. Kết quả thành công
-![Test API](images/4.frontendintergrationwithapigateway/055-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/055-frontendintergrationwithapigateway.png)
 
 3. Quay lại bảng **Documents**, ấn nút **Refresh** để xem kết quả
-![Test API](images/4.frontendintergrationwithapigateway/056-frontendintergrationwithapigateway.png)
+![Test API](/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/056-frontendintergrationwithapigateway.png)
 

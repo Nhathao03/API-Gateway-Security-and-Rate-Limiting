@@ -12,21 +12,21 @@
     <title>Config CloudWatch to monitor user actions using API :: AWS API Gateway Security and Rate Limiting</title>
 
     
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754974201" rel="stylesheet">
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754974201" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754974486" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754974486" rel="stylesheet">
     
-    <link href="../API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754974201" rel="stylesheet">
+    <link href="../API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754974486" rel="stylesheet">
     
     
 
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754974201"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754974486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,8 +58,8 @@
 </div>
 
 
-<script type="text/javascript" src="../API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754974201"></script>
-<script type="text/javascript" src="../API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754974201"></script>
+<script type="text/javascript" src="../API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754974486"></script>
+<script type="text/javascript" src="../API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754974486"></script>
 
 <script type="text/javascript">
     
@@ -67,7 +67,7 @@
     
 </script>
 
-<script type="text/javascript" src="../API-Gateway-Security-and-Rate-Limiting/js/search.js?1754974201"></script>
+<script type="text/javascript" src="../API-Gateway-Security-and-Rate-Limiting/js/search.js?1754974486"></script>
 
     
   </div>
@@ -1208,7 +1208,7 @@
 </li>
 <li>
 <p>Select <strong>API</strong> created
-<img src="images/8.configcloudwatch/001-configcloudwatch.png" alt="API Gateway"></p>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/001-configcloudwatch.png" alt="API Gateway"></p>
 </li>
 <li>
 <p>Select <strong>Stage</strong></p>
@@ -1216,7 +1216,7 @@
 </ol>
 <ul>
 <li>In the <strong>Logs and tracing</strong>, click <strong>Edit</strong>
-<img src="images/8.configcloudwatch/002-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/002-configcloudwatch.png" alt="API Gateway"></li>
 </ul>
 <ol start="4">
 <li>In the <strong>Edit logs and tracing</strong></li>
@@ -1224,12 +1224,12 @@
 <ul>
 <li>Choose <strong>Errors and info logs</strong></li>
 <li>Click <strong>Save</strong>
-<img src="images/8.configcloudwatch/003-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/003-configcloudwatch.png" alt="API Gateway"></li>
 </ul>
 <ol start="5">
 <li>
 <p>Open <strong>Postman</strong> and send any request
-<img src="images/8.configcloudwatch/004-configcloudwatch.png" alt="Postman"></p>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/004-configcloudwatch.png" alt="Postman"></p>
 </li>
 <li>
 <p>Open <a href="https:console.aws.amazon.com/cloudwatch">CloudWatch</a></p>
@@ -1238,14 +1238,14 @@
 <ul>
 <li>Click <strong>Log groups</strong></li>
 <li>Select <em><strong>API-Gateway-Execution-Logs_66r5ayu9s7/dev</strong></em>
-<img src="images/8.configcloudwatch/005-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/005-configcloudwatch.png" alt="API Gateway"></li>
 <li>Select <strong>Log streams</strong></li>
 <li>Copy the <strong>ARN</strong>, we will use it in the next part.
-<img src="images/8.configcloudwatch/006-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/006-configcloudwatch.png" alt="API Gateway"></li>
 </ul>
 <ol start="7">
 <li>Successful results
-<img src="images/8.configcloudwatch/007-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/007-configcloudwatch.png" alt="API Gateway"></li>
 </ol>
 
 <div class="notices info" ><p>Here you will see all the actions we have done with the API, we have done the <strong>GET</strong> method. But we will edit a part in the Log and follow to see more information.</p>
@@ -1256,14 +1256,14 @@
 </ol>
 <ul>
 <li>In the <strong>Logs and tracing</strong>, click <strong>Edit</strong>
-<img src="images/8.configcloudwatch/008-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/008-configcloudwatch.png" alt="API Gateway"></li>
 <li>Paste the <strong>ARN</strong> we recorded here</li>
 <li>Copy the below code block to <strong>Log format</strong></li>
 </ul>
 <pre tabindex="0"><code>{ &#34;requestId&#34;:&#34;$context.requestId&#34;, &#34;ip&#34;:&#34;$context.identity.sourceIp&#34;, &#34;userAgent&#34;:&#34;$context.identity.userAgent&#34;, &#34;requestTime&#34;:&#34;$context.requestTime&#34;, &#34;method&#34;:&#34;$context.httpMethod&#34;, &#34;path&#34;:&#34;$context.resourcePath&#34;, &#34;status&#34;:&#34;$context.status&#34;, &#34;error&#34;:&#34;$context.error.message&#34; }
 </code></pre><ul>
 <li>Click <strong>Save</strong>
-<img src="images/8.configcloudwatch/009-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/009-configcloudwatch.png" alt="API Gateway"></li>
 </ul>
 <ol start="9">
 <li>Open <strong>Postman</strong> and send request again</li>
@@ -1271,9 +1271,9 @@
 </ol>
 <ul>
 <li>Select newest <strong>Log streams</strong>
-<img src="images/8.configcloudwatch/010-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/010-configcloudwatch.png" alt="API Gateway"></li>
 <li>You can see more details after we have configured
-<img src="images/8.configcloudwatch/011-configcloudwatch.png" alt="API Gateway"></li>
+<img src="../API-Gateway-Security-and-Rate-Limiting/images/8.configcloudwatch/011-configcloudwatch.png" alt="API Gateway"></li>
 </ul>
 
 
@@ -1815,19 +1815,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754974201"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754974486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754974201"></script>
-    <script src="../API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754974201"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754974486"></script>
+    <script src="../API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754974486"></script>
 
-    <link href="../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754974201" rel="stylesheet" />
-    <script src="../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754974201"></script>
+    <link href="../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754974486" rel="stylesheet" />
+    <script src="../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754974486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
