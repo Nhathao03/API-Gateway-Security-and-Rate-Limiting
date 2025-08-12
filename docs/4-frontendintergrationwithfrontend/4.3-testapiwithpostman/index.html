@@ -7,26 +7,26 @@
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
-    <link rel="icon" href="/API-Gateway-Security-and-Rate-Limiting/images/favicon.png" type="image/png">
+    <link rel="icon" href="../../API-Gateway-Security-and-Rate-Limiting/images/favicon.png" type="image/png">
 
     <title>Test API with Postman :: AWS API Gateway Security and Rate Limiting</title>
 
     
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754973865" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754974201" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754974201" rel="stylesheet">
     
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754973865" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754974201" rel="stylesheet">
     
     
 
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754973865"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754974201"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,14 +36,14 @@
     </style>
     
   </head>
-  <body class="" data-url="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
+  <body class="" data-url="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/">
+      <a id="logo" href="../../">
 
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
 
@@ -58,8 +58,8 @@
 </div>
 
 
-<script type="text/javascript" src="/API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754973865"></script>
-<script type="text/javascript" src="/API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754973865"></script>
+<script type="text/javascript" src="../../API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754974201"></script>
+<script type="text/javascript" src="../../API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754974201"></script>
 
 <script type="text/javascript">
     
@@ -67,7 +67,7 @@
     
 </script>
 
-<script type="text/javascript" src="/API-Gateway-Security-and-Rate-Limiting/js/search.js?1754973865"></script>
+<script type="text/javascript" src="../../API-Gateway-Security-and-Rate-Limiting/js/search.js?1754974201"></script>
 
     
   </div>
@@ -93,7 +93,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/1-introduce/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/1-introduce/">
            <b> 1. </b> Introduction
           
             <i class="fas fa-check read-icon"></i>
@@ -122,7 +122,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/">
            <b> 2. </b> Deloy database
           
             <i class="fas fa-check read-icon"></i>
@@ -156,7 +156,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.1-createdynamodbtable/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.1-createdynamodbtable/">
            <b> 2.1 </b> Create DynamoDB table
           
             <i class="fas fa-check read-icon"></i>
@@ -187,7 +187,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/">
            <b> 2.2 </b> Create Lambda function
           
             <i class="fas fa-check read-icon"></i>
@@ -221,7 +221,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/">
            <b> 2.2.1 </b> Create listing function
           
             <i class="fas fa-check read-icon"></i>
@@ -252,7 +252,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/">
            <b> 2.2.2 </b> Create creating function
           
             <i class="fas fa-check read-icon"></i>
@@ -283,7 +283,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/">
            <b> 2.2.3 </b> Create deleting function
           
             <i class="fas fa-check read-icon"></i>
@@ -323,7 +323,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.3-testlambdafunctions/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/2-deloydatabase/2.3-testlambdafunctions/">
            <b> 2.3 </b> Test lambda function
           
             <i class="fas fa-check read-icon"></i>
@@ -361,7 +361,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/">
            <b> 3. </b> Config Cognito
           
             <i class="fas fa-check read-icon"></i>
@@ -395,7 +395,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.1-introduceamplify/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.1-introduceamplify/">
            <b> 3.1 </b> Introduce Amplify
           
             <i class="fas fa-check read-icon"></i>
@@ -426,7 +426,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.2-preparation/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.2-preparation/">
            <b> 3.2 </b> Preparation
           
             <i class="fas fa-check read-icon"></i>
@@ -457,7 +457,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.3-authenticationandstorage/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.3-authenticationandstorage/">
            <b> 3.3 </b> Authentication and Storage
           
             <i class="fas fa-check read-icon"></i>
@@ -491,7 +491,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/">
            <b> 3.3.1 </b> Authentication with Anplify
           
             <i class="fas fa-check read-icon"></i>
@@ -522,7 +522,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/">
            <b> 3.3.2 </b> Storage with Amplify
           
             <i class="fas fa-check read-icon"></i>
@@ -562,7 +562,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.4-accesslevel/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/3-configcognito/3.4-accesslevel/">
            <b> 3.4 </b> Access level
           
             <i class="fas fa-check read-icon"></i>
@@ -600,7 +600,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/">
            <b> 4. </b> Front-end intergration with gateway
           
             <i class="fas fa-check read-icon"></i>
@@ -634,7 +634,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.1-deloyfrontend/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.1-deloyfrontend/">
            <b> 4.1 </b> Deloy Front-end
           
             <i class="fas fa-check read-icon"></i>
@@ -665,7 +665,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.2-configapigateway/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.2-configapigateway/">
            <b> 4.2 </b> Config API Gateway
           
             <i class="fas fa-check read-icon"></i>
@@ -696,7 +696,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
            <b> 4.3 </b> Test API with Postman
           
             <i class="fas fa-check read-icon"></i>
@@ -727,7 +727,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/">
            <b> 4.4 </b> Test APIs with Front-end
           
             <i class="fas fa-check read-icon"></i>
@@ -765,7 +765,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/5-configamazoncloudfront/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/5-configamazoncloudfront/">
            <b> 5. </b> Config Amazon CloudFront
           
             <i class="fas fa-check read-icon"></i>
@@ -794,7 +794,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/6-protectionwithwaf/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/6-protectionwithwaf/">
            <b> 6. </b> Protection with WAF
           
             <i class="fas fa-check read-icon"></i>
@@ -823,7 +823,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/7-configiam/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/7-configiam/">
            <b> 7. </b> Config IAM
           
             <i class="fas fa-check read-icon"></i>
@@ -857,7 +857,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/7-configiam/7.1-createpolicy/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/7-configiam/7.1-createpolicy/">
            <b> 7.1 </b> Create Policy
           
             <i class="fas fa-check read-icon"></i>
@@ -888,7 +888,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/7-configiam/7.2-createuser/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/7-configiam/7.2-createuser/">
            <b> 7.2 </b> Create IAM User
           
             <i class="fas fa-check read-icon"></i>
@@ -919,7 +919,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/7-configiam/7.3-configiaminapi/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/7-configiam/7.3-configiaminapi/">
            <b> 7.3 </b> Config IAM in API
           
             <i class="fas fa-check read-icon"></i>
@@ -950,7 +950,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/7-configiam/7.4-testiampostman/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/7-configiam/7.4-testiampostman/">
            <b> 7.4 </b> Test IAM with Postman
           
             <i class="fas fa-check read-icon"></i>
@@ -988,7 +988,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/8-configcloudwatch/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/8-configcloudwatch/">
            <b> 8. </b> Config CloudWatch to monitor user actions using API
           
             <i class="fas fa-check read-icon"></i>
@@ -1017,7 +1017,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/9-cleanup/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/9-cleanup/">
            <b> 9. </b> Clean up resources
           
             <i class="fas fa-check read-icon"></i>
@@ -1170,7 +1170,7 @@
             
           
           
-            <a href='/API-Gateway-Security-and-Rate-Limiting/'>API Gateway Security and Rate Limiting</a> > <a href='/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/'>Front-end intergration with gateway</a> > Test API with Postman
+            <a href='../../API-Gateway-Security-and-Rate-Limiting/'>API Gateway Security and Rate Limiting</a> > <a href='../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/'>Front-end intergration with gateway</a> > Test API with Postman
           
         
           
@@ -1220,7 +1220,7 @@
 <ol>
 <li>
 <p>Create new collection, then click <strong>Bank collection</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/046-frontendintergrationwithapigateway.png" alt="Test API"></p>
+<img src="images/4.frontendintergrationwithapigateway/046-frontendintergrationwithapigateway.png" alt="Test API"></p>
 </li>
 <li>
 <p>Enter collection name, such as: <code>fcjdmswebstore-5801</code></p>
@@ -1228,15 +1228,15 @@
 </ol>
 <ul>
 <li>Click <strong>Add request</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/047-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/047-frontendintergrationwithapigateway.png" alt="Test API"></li>
 <li>Select <strong>GET</strong> method</li>
 <li>Replace <strong>{id}</strong> with <code>abcd1234</code></li>
 <li>Click <strong>Send</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/048-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/048-frontendintergrationwithapigateway.png" alt="Test API"></li>
 </ul>
 <ol start="3">
 <li>Successful results
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/049-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/049-frontendintergrationwithapigateway.png" alt="Test API"></li>
 </ol>
 <h4 id="test-the-creating-api">Test the creating API</h4>
 <ol>
@@ -1260,11 +1260,11 @@
 }
 </code></pre><ul>
 <li>Click <strong>Send</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/051-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/051-frontendintergrationwithapigateway.png" alt="Test API"></li>
 </ul>
 <ol start="2">
 <li>Open the console of <strong>DynamoDB</strong>, select <strong>Documents</strong> and select the <strong>Explore items</strong> table to check the results:
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/052-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/052-frontendintergrationwithapigateway.png" alt="Test API"></li>
 </ol>
 <h4 id="test-the-deleting-api">Test the deleting API</h4>
 <ol>
@@ -1273,19 +1273,19 @@
 <ul>
 <li>Select <strong>DELETE</strong> method</li>
 <li>Enter URL of the writing API that recorded from the previous step, replace <strong>{id}</strong> with <code>abcd1234</code>
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/053-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/053-frontendintergrationwithapigateway.png" alt="Test API"></li>
 <li>In the <strong>Params</strong> section, enter <code>file</code> for the key and <code>flowers.png</code> for the value</li>
 <li>Click Send
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/054-frontendintergrationwithapigateway.png" alt="Test API"></li>
+<img src="images/4.frontendintergrationwithapigateway/054-frontendintergrationwithapigateway.png" alt="Test API"></li>
 </ul>
 <ol start="2">
 <li>
 <p>Successful results
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/055-frontendintergrationwithapigateway.png" alt="Test API"></p>
+<img src="images/4.frontendintergrationwithapigateway/055-frontendintergrationwithapigateway.png" alt="Test API"></p>
 </li>
 <li>
 <p>Back to the <strong>Documents</strong> table, click the <strong>Refresh</strong> button to see the results
-<img src="/API-Gateway-Security-and-Rate-Limiting/images/4.frontendintergrationwithapigateway/056-frontendintergrationwithapigateway.png" alt="Test API"></p>
+<img src="images/4.frontendintergrationwithapigateway/056-frontendintergrationwithapigateway.png" alt="Test API"></p>
 </li>
 </ol>
 
@@ -1819,10 +1819,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.2-configapigateway/" title="Config API Gateway"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.2-configapigateway/" title="Config API Gateway"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/" title="Test APIs with Front-end" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../API-Gateway-Security-and-Rate-Limiting/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/" title="Test APIs with Front-end" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1832,19 +1832,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754973865"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754974201"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754973865"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754974201"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754974201"></script>
 
-    <link href="/API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754973865" rel="stylesheet" />
-    <script src="/API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754973865"></script>
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754974201" rel="stylesheet" />
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754974201"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

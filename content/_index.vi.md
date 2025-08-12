@@ -9,5 +9,5 @@ chapter : false
  In this lab, you'll learn the basics and practice of Amazon  API Gateway Security and Rate Limiting - Session Manager
  Perform creating public and private instance connections. 
 
-![ConnectPrivate]({{< relref "/" >}}images/arc-5801.png) 
+![ConnectPrivate](images/arc-5801.png) 
 

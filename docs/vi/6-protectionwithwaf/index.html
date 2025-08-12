@@ -7,26 +7,26 @@
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
-    <link rel="icon" href="/API-Gateway-Security-and-Rate-Limiting/images/favicon.png" type="image/png">
+    <link rel="icon" href="../../API-Gateway-Security-and-Rate-Limiting/images/favicon.png" type="image/png">
 
     <title>Bảo vệ với WAF :: AWS API Gateway Security and Rate Limiting</title>
 
     
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754973865" rel="stylesheet">
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754973865" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/nucleus.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/fontawesome-all.min.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/hybrid.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/featherlight.min.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/perfect-scrollbar.min.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/auto-complete.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/atom-one-dark-reasonable.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/theme.css?1754974202" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/hugo-theme.css?1754974202" rel="stylesheet">
     
-    <link href="/API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754973865" rel="stylesheet">
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/css/theme-workshop.css?1754974202" rel="stylesheet">
     
     
 
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754973865"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/jquery-3.3.1.min.js?1754974202"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,14 +36,14 @@
     </style>
     
   </head>
-  <body class="" data-url="/API-Gateway-Security-and-Rate-Limiting/vi/6-protectionwithwaf/">
+  <body class="" data-url="../../API-Gateway-Security-and-Rate-Limiting/vi/6-protectionwithwaf/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/">
+      <a id="logo" href="../../">
 
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
 
@@ -58,8 +58,8 @@
 </div>
 
 
-<script type="text/javascript" src="/API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754973865"></script>
-<script type="text/javascript" src="/API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754973865"></script>
+<script type="text/javascript" src="../../API-Gateway-Security-and-Rate-Limiting/js/lunr.min.js?1754974202"></script>
+<script type="text/javascript" src="../../API-Gateway-Security-and-Rate-Limiting/js/auto-complete.js?1754974202"></script>
 
 <script type="text/javascript">
     
@@ -67,7 +67,7 @@
     
 </script>
 
-<script type="text/javascript" src="/API-Gateway-Security-and-Rate-Limiting/js/search.js?1754973865"></script>
+<script type="text/javascript" src="../../API-Gateway-Security-and-Rate-Limiting/js/search.js?1754974202"></script>
 
     
   </div>
@@ -93,7 +93,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/1-introduce/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/1-introduce/">
            <b> 1. </b> Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
@@ -122,7 +122,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/">
            <b> 2. </b> Triển khai cơ sở dữ liệu
           
             <i class="fas fa-check read-icon"></i>
@@ -156,7 +156,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.1-createdynamodbtable/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.1-createdynamodbtable/">
            <b> 2.1 </b> Tạo bảng với DynamoDB
           
             <i class="fas fa-check read-icon"></i>
@@ -187,7 +187,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/">
            <b> 2.2 </b> Tạo các Lambda function
           
             <i class="fas fa-check read-icon"></i>
@@ -221,7 +221,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.1-createlistingfunction/">
            <b> 2.2.1 </b> Tạo function liệt kê
           
             <i class="fas fa-check read-icon"></i>
@@ -252,7 +252,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.2-createcreatingfunction/">
            <b> 2.2.2 </b> Tạo function tạo dữ liệu
           
             <i class="fas fa-check read-icon"></i>
@@ -283,7 +283,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.2-createlambdafunctions/2.2.3-createdeletingfunction/">
            <b> 2.2.3 </b> Tạo function xóa dữ liệu
           
             <i class="fas fa-check read-icon"></i>
@@ -323,7 +323,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.3-testlambdafunctions/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/2-deloydatabase/2.3-testlambdafunctions/">
            <b> 2.3 </b> Kiểm tra các funcrion
           
             <i class="fas fa-check read-icon"></i>
@@ -361,7 +361,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/">
            <b> 3. </b> Cấu hình Cognito
           
             <i class="fas fa-check read-icon"></i>
@@ -395,7 +395,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.1-introduceamplify/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.1-introduceamplify/">
            <b> 3.1 </b> Giới thiệu về Amplify
           
             <i class="fas fa-check read-icon"></i>
@@ -426,7 +426,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.2-preparation/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.2-preparation/">
            <b> 3.2 </b> Chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
@@ -457,7 +457,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.3-authenticationandstorage/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.3-authenticationandstorage/">
            <b> 3.3 </b> Xác thực và lưu trữ
           
             <i class="fas fa-check read-icon"></i>
@@ -491,7 +491,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.3-authenticationandstorage/3.3.1-authenticationwithamplify/">
            <b> 3.3.1 </b> Application với Amplify
           
             <i class="fas fa-check read-icon"></i>
@@ -522,7 +522,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.3-authenticationandstorage/3.3.2-storagewithamplify/">
            <b> 3.3.2 </b> Storage với Amplify
           
             <i class="fas fa-check read-icon"></i>
@@ -562,7 +562,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.4-accesslevel/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/3-configcognito/3.4-accesslevel/">
            <b> 3.4 </b> Cấp độ truy cập
           
             <i class="fas fa-check read-icon"></i>
@@ -600,7 +600,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/">
            <b> 4. </b> Tích hợp giao diện người dùng với API
           
             <i class="fas fa-check read-icon"></i>
@@ -634,7 +634,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.1-deloyfrontend/">
            <b> 4.1 </b> Triển khai giao diện người dùng
           
             <i class="fas fa-check read-icon"></i>
@@ -665,7 +665,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.2-configapigateway/">
            <b> 4.2 </b> Cấu hình API Gateway
           
             <i class="fas fa-check read-icon"></i>
@@ -696,7 +696,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.3-testapiwithpostman/">
            <b> 4.3 </b> Kiểm tra API bằng Postman
           
             <i class="fas fa-check read-icon"></i>
@@ -727,7 +727,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/4-frontendintergrationwithfrontend/4.4-testapiwithfrontend/">
            <b> 4.4 </b> Kiểm tra API với giao diện người dùng
           
             <i class="fas fa-check read-icon"></i>
@@ -765,7 +765,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/5-configamazoncloudfront/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/5-configamazoncloudfront/">
            <b> 5. </b> Cấu hình Amazon CloudFront
           
             <i class="fas fa-check read-icon"></i>
@@ -794,7 +794,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/6-protectionwithwaf/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/6-protectionwithwaf/">
            <b> 6. </b> Bảo vệ với WAF
           
             <i class="fas fa-check read-icon"></i>
@@ -823,7 +823,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/">
            <b> 7. </b> Cấu hình IAM
           
             <i class="fas fa-check read-icon"></i>
@@ -857,7 +857,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.1-createpolicy/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.1-createpolicy/">
            <b> 7.1 </b> Tạo chính sach mới
           
             <i class="fas fa-check read-icon"></i>
@@ -888,7 +888,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.2-createuser/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.2-createuser/">
            <b> 7.2 </b> Tạo IAM User
           
             <i class="fas fa-check read-icon"></i>
@@ -919,7 +919,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.3-configiaminapi/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.3-configiaminapi/">
            <b> 7.3 </b> Cấu hình IAM trong API
           
             <i class="fas fa-check read-icon"></i>
@@ -950,7 +950,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.4-testiampostman/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/7.4-testiampostman/">
            <b> 7.4 </b> Kiểm tra IAM với Postman
           
             <i class="fas fa-check read-icon"></i>
@@ -988,7 +988,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/8-configcloudwatch/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/8-configcloudwatch/">
            <b> 8. </b> Config CloudWatch to monitor user actions using API
           
             <i class="fas fa-check read-icon"></i>
@@ -1017,7 +1017,7 @@
 
         
         ">
-      <a href="/API-Gateway-Security-and-Rate-Limiting/vi/9-cleanup/">
+      <a href="../../API-Gateway-Security-and-Rate-Limiting/vi/9-cleanup/">
            <b> 9. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
@@ -1166,7 +1166,7 @@
             
           
           
-            <a href='/API-Gateway-Security-and-Rate-Limiting/vi/'>API Gateway Security and Rate Limiting</a> > Bảo vệ với WAF
+            <a href='../../API-Gateway-Security-and-Rate-Limiting/vi/'>API Gateway Security and Rate Limiting</a> > Bảo vệ với WAF
           
         
           
@@ -1207,7 +1207,7 @@
 </ol>
 <ul>
 <li>Ấn <strong>Create web ACL</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/001-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/001-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="2">
 <li>Tại mục <strong>Web ACL details</strong>.</li>
@@ -1217,7 +1217,7 @@
 <li>Tại <strong>Name</strong> <code>Protection-fcjdmswebstore-5801</code>.</li>
 <li>Tại <strong>Description</strong> <code>Web ACL for the fcjdmswebstore-5801</code>.</li>
 <li>Tại <strong>Associated AWS resources</strong> ấn <strong>Add AWS resources</strong>.
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/002-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/002-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="3">
 <li>Tại <strong>AWS resources</strong>.</li>
@@ -1226,12 +1226,12 @@
 <li>Ấn <strong>CloudFront Distributions</strong></li>
 <li>Ấn <strong>E373NUKDTTVAF8 - d3nkar1nu5y1m0.cloudfront.net</strong> (CloudFront Distributions chúng ta đã tạo)</li>
 <li>Ấn nút <strong>Add</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/003-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/003-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="4">
 <li>
 <p>Ấn nút <strong>Next</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/004-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/004-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Tại mục <strong>Rules</strong>.</p>
@@ -1240,53 +1240,53 @@
 <ul>
 <li>Ấn <strong>Add rules</strong>.</li>
 <li>Ấn <strong>Add managed rule groups</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/005-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/005-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="6">
 <li>
 <p>Tại trang <strong>Add managed rule groups</strong>, ấn <strong>AWS managed rule groups</strong>.
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/006-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/006-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Chọn <strong>Core Rule Set</strong>, <strong>SQL Database</strong> và <strong>Known bad inputs</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/007-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/007-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Cuộn xuống cuối trang, ấn <strong>Add rules</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/008-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/008-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Tại trang <strong>Add managed rule groups</strong>, ấn <strong>Next</strong>.
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/009-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/009-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Tại trang <strong>Set rule priority</strong>, ấn <strong>Next</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/010-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/010-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Tại trang <strong>Configure metrics</strong>, ấn <strong>Next</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/011-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/011-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Tại trang <strong>Review and create web ACL</strong>, cuộn xuống cuối trang sau đó ấn <strong>Create web ACL</strong>.
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/012-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/012-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Ấn vào <strong>Web ACL created</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/013-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/013-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 </ol>
 <ul>
 <li>Ấn tab <strong>Rule</strong></li>
 <li>Ấn <strong>Add rules</strong>, sau đó ấn <strong>Add my own rules and rule groups</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/014-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/014-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="14">
 <li>Tại <strong>Rule type</strong>, ấn <strong>Rule builder</strong></li>
 </ol>
 <ul>
 <li>Nhập tên rule: <code>BlockSQLiLoginPath</code>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/015-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/015-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="15">
 <li>Tại <strong>Statement</strong></li>
@@ -1295,7 +1295,7 @@
 <li>Tại <strong>Inspect</strong>, chọn <code>URI path</code></li>
 <li>Tại <strong>Match type</strong>, chọn <code>Exactly matches string</code></li>
 <li>Tại <strong>String to match</strong>, nhập <code>/signin</code> (URL ở trang đăng nhập trong website của bạn)
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/016-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/016-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="16">
 <li>Tại <strong>Text transformation</strong></li>
@@ -1305,16 +1305,16 @@
 <li>Ấn <strong>Add text transformation</strong>, sau đó chọn <code>Lowercase</code></li>
 <li>Ấn <strong>Add text transformation</strong>, sau đó chọn <code>Compress whitespace</code></li>
 <li>Chọn <strong>Block</strong> tại <strong>Action</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/017-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/017-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <ol start="17">
 <li>
 <p>Ấn <strong>Add rule</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/018-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/018-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Ấn <strong>Save</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/019-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/019-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Mở trang đăng nhập tại website của bạn</p>
@@ -1329,7 +1329,7 @@
 </li>
 <li>
 <p>Ấn <strong>Sign in</strong>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/020-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/020-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 <li>
 <p>Nhấp chuột phải, chọn <strong>Inspect</strong></p>
@@ -1339,7 +1339,7 @@
 </li>
 <li>
 <p>Kiểm tra <strong>status code</strong> sẽ thấy xuất hiện lỗi <code>403 Forbidden</code>
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/021-protectionwithwaf.png" alt="Protection wtih WAF"></p>
+<img src="images/6.protectionwithwaf/021-protectionwithwaf.png" alt="Protection wtih WAF"></p>
 </li>
 </ul>
 <ol start="20">
@@ -1348,8 +1348,8 @@
 <ul>
 <li>Ấn tab <strong>Sampled requests</strong></li>
 <li>Bạn sẽ nhìn thấy <strong>Metric name</strong> <code>BlockSQLiLoginPath</code> đã bị chặn
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/023-protectionwithwaf.png" alt="Protection wtih WAF">
-<img src="/API-Gateway-Security-and-Rate-Limiting/vi/images/6.protectionwithwaf/022-protectionwithwaf.png" alt="Protection wtih WAF"></li>
+<img src="images/6.protectionwithwaf/023-protectionwithwaf.png" alt="Protection wtih WAF">
+<img src="images/6.protectionwithwaf/022-protectionwithwaf.png" alt="Protection wtih WAF"></li>
 </ul>
 <p>Finally we have successfully configured WAF for the website, next we will continue to configure CloudWatch</p>
 
@@ -1879,10 +1879,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/API-Gateway-Security-and-Rate-Limiting/vi/5-configamazoncloudfront/" title="Cấu hình Amazon CloudFront"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../API-Gateway-Security-and-Rate-Limiting/vi/5-configamazoncloudfront/" title="Cấu hình Amazon CloudFront"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/" title="Cấu hình IAM" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../API-Gateway-Security-and-Rate-Limiting/vi/7-configiam/" title="Cấu hình IAM" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1892,19 +1892,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754973865"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/clipboard.min.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.min.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/perfect-scrollbar.jquery.min.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/jquery.sticky.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/featherlight.min.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/highlight.pack.js?1754974202"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754973865"></script>
-    <script src="/API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754973865"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/modernizr.custom-3.6.0.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/learn.js?1754974202"></script>
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/js/hugo-learn.js?1754974202"></script>
 
-    <link href="/API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754973865" rel="stylesheet" />
-    <script src="/API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754973865"></script>
+    <link href="../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.css?1754974202" rel="stylesheet" />
+    <script src="../../API-Gateway-Security-and-Rate-Limiting/mermaid/mermaid.js?1754974202"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -28,7 +28,7 @@ npm install
 ```
 
 3. Open the project and open **src/component/Home/Upload.js** file. Comment the block codes that call API to interact with DynamoDB
-![Config cognito]({{< relref "/" >}}images/3.configcognito/001-configcognito.png)
+![Config cognito](images/3.configcognito/001-configcognito.png)
 
 4. To initialize Amplify for your application, run the following command from the application’s root directory:
 
@@ -62,10 +62,10 @@ amplify init
    - ? Please choose the profile you want to use default
    - ? Help improve Amplify CLI by sharing non sensitive configurations on failures (y/N) › `No`
 
-![Config cognito]({{< relref "/" >}}images/3.configcognito/002-configcognito.png)
+![Config cognito](images/3.configcognito/002-configcognito.png)
 
 5. Open [CloudFormation console](https://console.aws.amazon.com/cloudformation)
 
 6. Select **Stacks** on the left menu, you will see the newly created stack. Click the **Resources** tab and you will see the resources that Amplify 
 creates 
-![Config cognito]({{< relref "/" >}}images/3.configcognito/003-configcognito.png)
+![Config cognito](images/3.configcognito/003-configcognito.png)
