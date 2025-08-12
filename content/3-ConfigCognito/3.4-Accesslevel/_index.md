@@ -16,74 +16,74 @@ In this section we will change the user permission to upload files to S3.
 1. Open [Cognito console](https://console.aws.amazon.com/cognito/)
 
 2. Click **Identity pools** on the left menu
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/023-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/023-configcognito.png)
 
 3. Select **fcjdms...identitypool...**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/024-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/024-configcognito.png)
 
 4. Click **User access** tab and note down the name of the **Authenticated role**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/025-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/025-configcognito.png)
 
 5. Open [IAM Role]()
  + Select **Roles** on the left menu
  + Enter name of **Authenticated role** and click to searched role
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/026-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/026-configcognito.png)
 
 6. Expand policies to view user permissions
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/027-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/027-configcognito.png)
 
 7. Select **Protected_policy_...** policy
  - Click **Remove**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/028-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/028-configcognito.png)
 
 We will remove the access level permission **protected** because the application is using that level.
 
 8. Enter policy name and click **Delete**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/029-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/029-configcognito.png)
 
 9. You have successfully removed.
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/030-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/030-configcognito.png)
 
 10. Back in the application, click **Add files** and select the file you want to upload. Then click **Upload**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/031-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/031-configcognito.png)
 
 11. Access to **Inspect | Console** mode. We received an error.
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/032-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/032-configcognito.png)
 
 12. Re-add permissions for the user.
  + Click **Add permissions**
  + Select **Create inline policy**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/033-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/033-configcognito.png)
 
 13. Select S3 for service
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/034-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/034-configcognito.png)
 
 14. In **Actions | Read** section, select **GetObject**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/035-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/035-configcognito.png)
 
 15. In **Actions | Write** section, select **PutObject** and **DeleteObject**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/036-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/036-configcognito.png)
 
 16. In **Resources** secttion, click **Add ARN**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/037-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/037-configcognito.png)
 
 17. Enter ARN: `arn:aws:s3:::YOUR_BUCKET-dev/protected/${cognito-identity.amazonaws.com:sub}/*`
 {{% notice info %}}
 Replace `YOUR_BUCKET` with the bucket name you created earlier.
 {{% /notice %}}
  + Click **Add**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/038-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/038-configcognito.png)
 
 18. Click **Review policy**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/039-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/039-configcognito.png)
 
 19. Enter policy name: `Protected_policy`. Then click **Create policy**
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/040-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/040-configcognito.png)
 
 20. Go back to the web app, reload the file you just failed
  + Click **Add files**, select the file you want to download
  + Click **Upload** 
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/042-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/042-configcognito.png)
 
 21. Open the console of the S3 bucket to see if the file has loaded successfully.
-![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/041-configcognito.png)
+![Config cognito]({{< relref "/" >}}images/3.configcognito/041-configcognito.png)
