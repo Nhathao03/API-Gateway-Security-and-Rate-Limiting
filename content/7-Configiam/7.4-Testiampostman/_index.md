@@ -9,17 +9,17 @@ pre : " <b> 7.4 </b> "
 1. Open **Postman**
 2. Select method **GET** created
  + Replace **{id}** with `abcd1234`
-![API Gateway](/images/7.configiam/018-configiam.png)
+![API Gateway](/API-Gateway-Security-and-Rate-Limiting/images/7.configiam/018-configiam.png)
 3. Select tab **Authorization** 
  + In the **auth type**, choose **AWS Signature**
  + Enter **Accesskey** and **Secretkey**
  + Enter **AWS Region**, such as: `ap-southeast-1`
  + Enter **Service name**: `execute-api`
  + Click **Send**
-![API Gateway](/images/7.configiam/019-configiam.png)
+![API Gateway](/API-Gateway-Security-and-Rate-Limiting/images/7.configiam/019-configiam.png)
 
 4. Successful results
-![API Gateway](/images/7.configiam/020-configiam.png)
+![API Gateway](/API-Gateway-Security-and-Rate-Limiting/images/7.configiam/020-configiam.png)
 {{% notice info %}}
 Similarly, do the same with POST and DELETE method.
 {{% /notice %}}
@@ -30,4 +30,4 @@ Similarly, do the same with POST and DELETE method.
   "message": "Missing Authentication Token"
 }
 ```
-![API Gateway](/images/7.configiam/021-configiam.png)
+![API Gateway](/API-Gateway-Security-and-Rate-Limiting/images/7.configiam/021-configiam.png)

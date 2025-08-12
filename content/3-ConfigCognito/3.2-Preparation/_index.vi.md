@@ -28,7 +28,7 @@ npm install
 ```
 
 3. Mở project và mở tệp **src/component/Home/Upload.js** . Comment đoạn code gọi API để tương tác với DynamoDB
-![Config cognito](/images/3.configcognito/001-configcognito.png)
+![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/001-configcognito.png)
 
 4. Để khởi tạo Amplify cho ứng dụng, bạn chạy câu lệnh dưới đây từ thư mục gốc của ứng dụng:
 
@@ -62,9 +62,9 @@ amplify init
    - ? Please choose the profile you want to use default
    - ? Help improve Amplify CLI by sharing non sensitive configurations on failures (y/N) › `No`
 
-![Config cognito](/images/3.configcognito/002-configcognito.png)
+![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/002-configcognito.png)
 
 5. Mở bảng điều khiển của [CloudFormation](https://console.aws.amazon.com/cloudformation)
 
 6. Chọn **Stacks** ở menu phía bên trái, bạn sẽ thấy stack mới được tạo. Ấn tab **Resources** bạn sẽ thấy các tài nguyên mà Amplify tạo
-![Config cognito](/images/3.configcognito/003-configcognito.png)
+![Config cognito](/API-Gateway-Security-and-Rate-Limiting/images/3.configcognito/003-configcognito.png)

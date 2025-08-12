@@ -13,7 +13,7 @@ To test the functions, download the following file to your computer and run the 
 
 - [documentData.json](https://000133.awsstudygroup.com/3-test-lambda-functions/_index.files/documentData.json) (3 KB)
 
-![Documents](/images/2.deloydatabase/030-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/030-testlambdafunction.png)
 
 #### Test listing function
 1. Open the **list_documents** function console
@@ -30,10 +30,10 @@ To test the functions, download the following file to your computer and run the 
 
 ```
 3. Click **Save**, then click **Test**
-![Documents](/images/2.deloydatabase/031-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/031-testlambdafunction.png)
 
 4. You will get all the information of the user's files with the id **abcd1234**
-![Documents](/images/2.deloydatabase/032-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/032-testlambdafunction.png)
 
 #### Test creating function
 1. Open the **upload_document** function console
@@ -58,13 +58,13 @@ To test the functions, download the following file to your computer and run the 
 
 ```
 3. Click **Save**, then click **Test**
-![Documents](/images/2.deloydatabase/033-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/033-testlambdafunction.png)
 
 4. You will get a return result of **succeeded**
-![Documents](/images/2.deloydatabase/034-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/034-testlambdafunction.png)
 
 5. Open **Documents** table to check if added successfully
-![Documents](/images/2.deloydatabase/035-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/035-testlambdafunction.png)
 
 #### Test deleting function
 1. Open the **delete_documents** function console
@@ -84,12 +84,12 @@ To test the functions, download the following file to your computer and run the 
 
 ```
 3. Click **Save**, then click **Test**
-![Documents](/images/2.deloydatabase/036-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/036-testlambdafunction.png)
 
 4. You will get a return result of **succeeded**
-![Documents](/images/2.deloydatabase/037-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/037-testlambdafunction.png)
 
 5. Open **Documents** table to check if added successfully
-![Documents](/images/2.deloydatabase/038-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/038-testlambdafunction.png)
 
 You are done creating Lambda functions that interact with DynamoDB. In the next post we will authenticate to the archive with the Amplify library.

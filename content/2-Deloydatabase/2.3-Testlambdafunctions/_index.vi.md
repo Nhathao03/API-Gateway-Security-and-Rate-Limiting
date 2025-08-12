@@ -13,7 +13,7 @@ Trong phần này chúng ta sẽ tạo kiểm tra xem các function có hoạt �
 
 - [documentData.json](https://000133.awsstudygroup.com/3-test-lambda-functions/_index.files/documentData.json) (3 KB)
 
-![Documents](/images/2.deloydatabase/030-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/030-testlambdafunction.png)
 
 #### Kiểm tra function liệt kê
 1. Mở bảng điều kiển của function **list_documents**
@@ -30,10 +30,10 @@ Trong phần này chúng ta sẽ tạo kiểm tra xem các function có hoạt �
 
 ```
 3. Ấn **Save**, sau đó ấn **Test**
-![Documents](/images/2.deloydatabase/031-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/031-testlambdafunction.png)
 
 4. Bạn sẽ nhận kết quả trả về là toàn bộ thông tin của các tệp của người dùng với id là **abcd1234**
-![Documents](/images/2.deloydatabase/032-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/032-testlambdafunction.png)
 
 #### Kiểm tra function tạo dữ liệu
 1. Mở bảng điều khiển của function **upload_document** 
@@ -58,13 +58,13 @@ Trong phần này chúng ta sẽ tạo kiểm tra xem các function có hoạt �
 
 ```
 3. Ấn **Save**, sau đó ấn **Test**
-![Documents](/images/2.deloydatabase/033-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/033-testlambdafunction.png)
 
 4. Bạn sẽ nhận kết quả trả về là **succeeded**
-![Documents](/images/2.deloydatabase/034-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/034-testlambdafunction.png)
 
 5. Mở bảng **Documents** để kiểm tra xem đã thêm thành công hay chưa
-![Documents](/images/2.deloydatabase/035-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/035-testlambdafunction.png)
 
 #### Kiểm tra function xóa dữ liệu  
 1. Mở bảng điều kiển của function **delete_documents**
@@ -84,12 +84,12 @@ Trong phần này chúng ta sẽ tạo kiểm tra xem các function có hoạt �
 
 ```
 3. Ấn **Save**, sau đó ấn **Test**
-![Documents](/images/2.deloydatabase/036-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/036-testlambdafunction.png)
 
 4. Bạn sẽ nhận kết quả trả về là **succeeded**
-![Documents](/images/2.deloydatabase/037-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/037-testlambdafunction.png)
 
 5. Mở bảng **Documents** để xem là đã xóa thành công hay chưa
-![Documents](/images/2.deloydatabase/038-testlambdafunction.png)
+![Documents](/API-Gateway-Security-and-Rate-Limiting/images/2.deloydatabase/038-testlambdafunction.png)
 
 Vậy là bạn đã hoàn thành tạo các Lambda function tương tác với DynamoDB. Trong bài tiếp theo chúng ta xác thực vào lưu trữ với thư viện Amplify.
